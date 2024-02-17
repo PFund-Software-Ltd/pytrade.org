@@ -2,6 +2,7 @@ node_modules/
 
 # nextjs
 .next/
+out/
 
 # local stuff
 **/.local/
