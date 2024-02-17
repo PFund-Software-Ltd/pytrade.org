@@ -1,13 +1,5 @@
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: 'https://docs.pytrade.org',
-        permanent: true,
-      },
-    ]
-  },
+  output: 'export',
 }
 
 const withNextra = require('nextra')({
