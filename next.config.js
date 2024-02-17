@@ -1,5 +1,8 @@
 const nextConfig = {
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
 }
 
 const withNextra = require('nextra')({
