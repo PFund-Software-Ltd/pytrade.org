@@ -1,0 +1,41 @@
+import { ReposTable } from '../components/ReposTable.mdx';
+import PypiBadge from '../components/PypiBadge';
+import getGitHubReposData from '../utils/getGitHubReposData';
+
+export const REPOS = {
+  yfinance: {
+    pypi: 'yfinance',
+    github: 'ranaroussi/yfinance',
+  },
+  'binance-public-data': {
+    pypi: 'binance-public-data',
+    github: 'binance/binance-public-data',
+  },
+  pfeed: {
+    pypi: 'pfeed',
+    github: 'PFund-Software-Ltd/pfeed',
+  },
+};
+
+export const getStaticProps = async ({ params }) => {
+  const githubRepos = Object.values(REPOS).map(repo => repo.github);
+  return await getGitHubReposData(githubRepos);
+};
+
+## Packages for data handling
+
+> **Disclaimer**: The founding contributor of [PyTrade](pytrade.org) is also the creator of `pfeed`.
+
+<ReposTable />
+
+
+### yfinance <PypiBadge pypiName={REPOS['yfinance']['pypi']} />
+TODO
+
+
+### binance-public-data <PypiBadge pypiName={REPOS['binance-public-data']['pypi']} />
+TODO
+
+
+### pfeed <PypiBadge pypiName={REPOS['pfeed']['pypi']} />
+TODO

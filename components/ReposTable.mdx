@@ -1,0 +1,55 @@
+{/* NOTE: must use the file extension mdx instead of jsx to make the styling on the table works */}
+
+import { useData } from 'nextra/data';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+
+export const Row = ({ repo }) => {
+  return (
+    <tr>
+      <td>
+        <a href={`https://github.com/${repo.fullName}`}>
+          {repo.name}
+        </a>
+      </td>
+      <td>
+        {repo.website && (
+          <a href={repo.website} target="_blank" rel="noopener noreferrer">
+            <FaExternalLinkAlt />
+          </a>
+        )}
+      </td>
+      <td><strong>{repo.stars}</strong></td>
+      <td>{repo.issues}</td>
+      <td>{repo.contributors}</td>
+      <td>{repo.version}</td>
+      <td>{repo.publishedAt}</td>
+      <td>{repo.forks}</td>
+      <td>{repo.watchers}</td>
+    </tr>
+  );
+};
+
+export const ReposTable = () => {
+  // Get the data from SSG, and render it as a component.
+  const { repos } = useData();
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Repo</th>
+          <th>Site</th>
+          <th>Stars</th>
+          <th>Issues</th>
+          <th>Contributors</th>
+          <th>Version</th>
+          <th>Last Publish</th>
+          <th>Forks</th>
+          <th>Watchers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {repos.map(repo => <Row key={repo.name} repo={repo} />)}
+      </tbody>
+    </table>
+  );
+};

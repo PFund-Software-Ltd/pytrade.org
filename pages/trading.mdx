@@ -1,0 +1,134 @@
+import { ReposTable } from '../components/ReposTable.mdx';
+import PypiBadge from '../components/PypiBadge';
+import getGitHubReposData from '../utils/getGitHubReposData';
+
+export const REPOS = {
+  lean: {
+    pypi: 'lean',
+    github: 'QuantConnect/Lean',
+    // description: '',  // optional
+  },
+  backtrader: {
+    pypi: 'backtrader',
+    github: 'backtrader/backtrader',
+    // description: '',  // optional
+  },
+  pfund: {
+    pypi: 'pfund',
+    github: 'PFund-Software-Ltd/pfund',
+    // description: '',  // optional
+  },
+  'trading-strategy': {
+    pypi: 'trading-strategy',
+    github: 'tradingstrategy-ai/trading-strategy',
+    // description: '',  // optional
+  },
+  blankly: {
+    pypi: 'blankly',
+    github: 'Blankly-Finance/blankly',
+    // description: '',  // optional
+  },
+  vnpy: {
+    pypi: 'vnpy',
+    github: 'vnpy/vnpy',
+    // description: '',  // optional
+  },
+  freqtrade: {
+    pypi: 'freqtrade',
+    github: 'freqtrade/freqtrade',
+    // description: '',  // optional
+  },
+  hummingbot: {
+    pypi: 'hummingbot',
+    github: 'hummingbot/hummingbot',
+    // description: '',  // optional
+  },
+  jesse: {
+    pypi: 'jesse',
+    github: 'jesse-ai/jesse',
+    // description: '',  // optional
+  },
+  superalgos: {
+    pypi: 'superalgos',
+    github: 'Superalgos/Superalgos',
+    // description: '',  // optional
+  },
+  qstrader: {
+    pypi: 'qstrader',
+    github: 'mhallsmoore/qstrader',
+    // description: '',  // optional
+  },
+  qtpylib: {
+    pypi: 'qtpylib',
+    github: 'ranaroussi/qtpylib',
+    // description: '',  // optional
+  },
+  zipline: {
+    pypi: 'zipline',
+    github: 'quantopian/zipline',
+    // description: '',  // optional
+  },
+};
+
+export const getStaticProps = async ({ params }) => {
+  const githubRepos = Object.values(REPOS).map(repo => repo.github);
+  return await getGitHubReposData(githubRepos);
+};
+
+# Trading Frameworks, support backtesting and live trading
+
+> **Disclaimer**: The founding contributor of [PyTrade](pytrade.org) is also the creator of `pfund`.
+
+<ReposTable />
+
+
+## lean <PypiBadge pypiName={REPOS['lean']['pypi']} />
+{REPOS['lean']?.description}
+- Supports strategy deployment on [QuantConnect](https://www.quantconnect.com/)
+
+## backtrader <PypiBadge pypiName={REPOS['backtrader']['pypi']} />
+{REPOS['backtrader']?.description}
+
+
+## pfund <PypiBadge pypiName={REPOS['pfund']['pypi']} />
+{REPOS['pfund']?.description}
+
+
+## trading-strategy <PypiBadge pypiName={REPOS['trading-strategy']['pypi']} />
+{REPOS['trading-strategy']?.description}
+
+
+## blankly <PypiBadge pypiName={REPOS['blankly']['pypi']} />
+{REPOS['blankly']?.description}
+
+
+## vnpy <PypiBadge pypiName={REPOS['vnpy']['pypi']} />
+{REPOS['vnpy']?.description}
+
+
+## freqtrade <PypiBadge pypiName={REPOS['freqtrade']['pypi']} />
+{REPOS['freqtrade']?.description}
+
+
+## hummingbot <PypiBadge pypiName={REPOS['hummingbot']['pypi']} />
+{REPOS['hummingbot']?.description}
+
+
+## jesse <PypiBadge pypiName={REPOS['jesse']['pypi']} />
+{REPOS['jesse']?.description}
+
+
+## superalgos <PypiBadge pypiName={REPOS['superalgos']['pypi']} />
+{REPOS['superalgos']?.description}
+
+
+## qstrader <PypiBadge pypiName={REPOS['qstrader']['pypi']} />
+{REPOS['qstrader']?.description}
+
+
+## qtpylib <PypiBadge pypiName={REPOS['qtpylib']['pypi']} />
+{REPOS['qtpylib']?.description}
+
+
+## zipline <PypiBadge pypiName={REPOS['zipline']['pypi']} />
+{REPOS['zipline']?.description}

@@ -1,0 +1,79 @@
+import { ReposTable } from '../components/ReposTable.mdx';
+import PypiBadge from '../components/PypiBadge';
+import getGitHubReposData from '../utils/getGitHubReposData';
+
+export const REPOS = {
+  pandas: {
+    pypi: 'pandas',
+    github: 'pandas-dev/pandas',
+    // description: '',  // optional
+  },
+  polars: {
+    pypi: 'polars',
+    github: 'pola-rs/polars',
+    // description: '',  // optional
+  },
+  spark: {
+    pypi: 'pyspark',
+    github: 'apache/spark',
+    // description: '',  // optional
+  },
+  dask: {
+    pypi: 'dask',
+    github: 'dask/dask',
+    // description: '',  // optional
+  },
+  modin: {
+    pypi: 'modin',
+    github: 'modin-project/modin',
+    // description: '',  // optional
+  },
+  duckdb: {
+    pypi: 'duckdb',
+    github: 'duckdb/duckdb',
+    // description: '',  // optional
+  },
+  vaex: {
+    pypi: 'vaex',
+    github: 'vaexio/vaex',
+    // description: '',  // optional
+  },
+};
+
+
+export const getStaticProps = async ({ params }) => {
+  const githubRepos = Object.values(REPOS).map(repo => repo.github);
+  return await getGitHubReposData(githubRepos);
+};
+
+
+# Data Tools
+<ReposTable />
+
+
+## Pandas <PypiBadge pypiName={REPOS['pandas']['pypi']} />
+{REPOS['pandas']?.description}
+
+
+## Polars <PypiBadge pypiName={REPOS['polars']['pypi']} />
+{REPOS['polars']?.description}
+
+
+## Spark <PypiBadge pypiName={REPOS['spark']['pypi']} />
+{REPOS['spark']?.description}
+
+
+## Dask <PypiBadge pypiName={REPOS['dask']['pypi']} />
+{REPOS['dask']?.description}
+
+
+## Modin <PypiBadge pypiName={REPOS['modin']['pypi']} />
+{REPOS['modin']?.description}
+
+
+## DuckDB <PypiBadge pypiName={REPOS['duckdb']['pypi']} />
+{REPOS['duckdb']?.description}
+
+
+## Vaex <PypiBadge pypiName={REPOS['vaex']['pypi']} />
+{REPOS['vaex']?.description}

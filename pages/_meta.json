@@ -1,11 +1,30 @@
 {
   "index": "Overview",
-  "backtest": "Backtesting Frameworks",
   "trading": "Trading Frameworks",
-  "research": "Research Tools",
+  "backtest": "Backtesting Frameworks",
+  "-": {
+    "type": "separator"
+  },
   "strategies": "Strategies",
   "models": "Models",
   "analytics": "Analytics",
+  "--": {
+    "type": "separator"
+  },
+  "backtest_data": "Backtesting Data",
+  "live_data": "Live Trading Data",
+  "data_libs": "Data Libraries",
+  "---": {
+    "type": "separator"
+  },
+  "research": "Research Tools",
+  "data_tools": "Data Tools",
+  "----": {
+    "type": "separator"
+  },
+  "trading_venues": "Brokers & Exchanges",
+  "api_integrations": "API Integrations",
+  "resources": "Resources",
   "contact": {
     "title": "Contact ↗",
     "type": "page",

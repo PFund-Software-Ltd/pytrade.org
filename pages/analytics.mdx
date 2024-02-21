@@ -1,0 +1,77 @@
+import { ReposTable } from '../components/ReposTable.mdx';
+import PypiBadge from '../components/PypiBadge';
+import getGitHubReposData from '../utils/getGitHubReposData';
+
+export const REPOS = {
+  quantstats: {
+    pypi: 'quantstats',
+    github: 'ranaroussi/quantstats',
+    // description: '',  // optional
+  },
+  'riskfolio-lib': {
+    pypi: 'riskfolio-lib',
+    github: 'dcajasn/Riskfolio-Lib',
+    // description: '',  // optional
+  },
+  PyPortfolioOpt: {
+    pypi: 'PyPortfolioOpt',
+    github: 'robertmartin8/PyPortfolioOpt',
+    // description: '',  // optional
+  },
+  'alphalens-reloaded': {
+    pypi: 'alphalens-reloaded',
+    github: 'stefan-jansen/alphalens-reloaded',
+    // description: '',  // optional
+  },
+  ffn: {
+    pypi: 'ffn',
+    github: 'pmorissette/ffn',
+    // description: '',  // optional
+  },
+  pyfolio: {
+    pypi: 'pyfolio',
+    github: 'quantopian/pyfolio',
+    // description: '',  // optional
+  },
+  alphalens: {
+    pypi: 'alphalens',
+    github: 'quantopian/alphalens',
+    // description: '',  // optional
+  },
+};
+
+export const getStaticProps = async ({ params }) => {
+  const githubRepos = Object.values(REPOS).map(repo => repo.github);
+  return await getGitHubReposData(githubRepos);
+};
+
+# Trading Analytics, Performance Metrics, Statistics and Portfolio Optimization
+<ReposTable />
+
+
+## quantstats <PypiBadge pypiName={REPOS['quantstats']['pypi']} />
+{REPOS['quantstats']?.description}
+
+
+## riskfolio-lib <PypiBadge pypiName={REPOS['riskfolio-lib']['pypi']} />
+{REPOS['riskfolio-lib']?.description}
+
+
+## PyPortfolioOpt <PypiBadge pypiName={REPOS['PyPortfolioOpt']['pypi']} />
+{REPOS['PyPortfolioOpt']?.description}
+
+
+## alphalens-reloaded <PypiBadge pypiName={REPOS['alphalens-reloaded']['pypi']} />
+{REPOS['alphalens-reloaded']?.description}
+
+
+## ffn <PypiBadge pypiName={REPOS['ffn']['pypi']} />
+{REPOS['ffn']?.description}
+
+
+## pyfolio <PypiBadge pypiName={REPOS['pyfolio']['pypi']} />
+{REPOS['pyfolio']?.description}
+
+
+## alphalens <PypiBadge pypiName={REPOS['alphalens']['pypi']} />
+{REPOS['alphalens']?.description}
