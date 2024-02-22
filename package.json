@@ -2,7 +2,7 @@
 	"scripts": {
 		"dev": "next",
 		"build": "next build",
-		"start": "next start"
+		"start": "serve out"
 	},
 	"dependencies": {
 		"@next/mdx": "^14.1.0",

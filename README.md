@@ -35,7 +35,7 @@ npm run dev
 ```
 
 
-### Build Static Files
+### Build Static Files & Run
 ```bash
-npm run build
+npm run build && npm run start
 ```
