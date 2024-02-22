@@ -4,6 +4,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
   # Runs at 00:00 UTC daily
   schedule:
     - cron: '0 0 * * *'
