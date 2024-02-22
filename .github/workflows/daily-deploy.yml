@@ -33,7 +33,20 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: "20"
-        cache: 'npm'
+    
+    - name: Install pnpm
+      run: npm install -g pnpm
+    
+    # Manually cache the pnpm store and node_modules
+    - name: Cache pnpm store and node_modules
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.pnpm-store
+          **/node_modules
+        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -56,10 +69,10 @@ jobs:
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
     - name: Install Dependencies
-      run: npm install
+      run: pnpm install
 
     - name: Build
-      run: npm run build
+      run: pnpm run build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
