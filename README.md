@@ -21,3 +21,21 @@ Think of it as an **awesome-algo-trading** list on GitHub, but with a better pre
 - [Brokers & Exchanges](https://pytrade.org/trading_venues), providing APIs to support algo-trading
 - [API Integrations](https://pytrade.org/api_integrations), integrating with trading APIs without any frameworks
 - [Resources](https://pytrade.org/resources), other resources about algo-trading
+
+
+### Installation
+```bash
+pnpm install
+```
+
+
+### Development
+```bash
+npm run dev
+```
+
+
+### Build Static Files
+```bash
+npm run build
+```
