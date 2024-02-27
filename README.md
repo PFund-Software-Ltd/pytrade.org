@@ -31,11 +31,11 @@ pnpm install
 
 ### Development
 ```bash
-npm run dev
+pnpm dev
 ```
 
 
 ### Build Static Files & Run
 ```bash
-npm run build && npm run start
+pnpm build && pnpm start
 ```
