@@ -27,6 +27,7 @@ export const REPOS = {
     pypi: 'ffn',
     github: 'pmorissette/ffn',
     // description: '',  // optional
+    // BUG: Broken link. The redirect link of "Site" is invalid. It points to "https://docs.pytrade.org/pmorissette.github.io/ffn"
   },
   pyfolio: {
     pypi: 'pyfolio',
@@ -68,10 +69,8 @@ export const getStaticProps = async ({ params }) => {
 ## ffn <PypiBadge pypiName={REPOS['ffn']['pypi']} />
 {REPOS['ffn']?.description}
 
-
 ## pyfolio <PypiBadge pypiName={REPOS['pyfolio']['pypi']} />
 {REPOS['pyfolio']?.description}
-
 
 ## alphalens <PypiBadge pypiName={REPOS['alphalens']['pypi']} />
 {REPOS['alphalens']?.description}
