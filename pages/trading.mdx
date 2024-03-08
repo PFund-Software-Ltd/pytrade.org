@@ -8,6 +8,11 @@ export const REPOS = {
     github: 'QuantConnect/Lean',
     // description: '',  // optional
   },
+  nautilus_trader: {
+    pypi: 'nautilus_trader',
+    github: 'nautechsystems/nautilus_trader',
+    // description: '',  // optional
+  },
   backtrader: {
     pypi: 'backtrader',
     github: 'backtrader/backtrader',
@@ -85,6 +90,10 @@ export const getStaticProps = async ({ params }) => {
 ## lean <PypiBadge pypiName={REPOS['lean']['pypi']} />
 {REPOS['lean']?.description}
 - Supports strategy deployment on [QuantConnect](https://www.quantconnect.com/)
+
+## nautilus_trader <PypiBadge pypiName={REPOS['nautilus_trader']['pypi']} />
+{REPOS['nautilus_trader']?.description}
+- Supports strategy deployment on [NautilusTrader](https://nautilustrader.io/)
 
 ## backtrader <PypiBadge pypiName={REPOS['backtrader']['pypi']} />
 {REPOS['backtrader']?.description}
