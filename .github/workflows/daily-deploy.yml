@@ -77,6 +77,7 @@ jobs:
       run: pnpm run build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NEXT_PUBLIC_GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3

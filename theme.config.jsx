@@ -30,6 +30,16 @@ export default {
         {/* tell search engines what the "preferred" version of a webpage is */}
         <link rel="canonical" href="https://pytrade.org/" /> 
         <link rel="icon" href="/favicon.ico" />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}></script> 
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', ${process.env.NEXT_PUBLIC_GA_TRACKING_ID});
+          `,
+        }}></script>
       </>
     ),
     project: {
