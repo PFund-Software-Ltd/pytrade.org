@@ -38,6 +38,16 @@ export const REPOS = {
     github: 'vaexio/vaex',
     // description: '',  // optional
   },
+  ibis: {
+    pypi: 'ibis-framework',
+    github: 'ibis-project/ibis',
+    // description: '',  // optional
+  },
+  daft: {
+    pypi: 'getdaft',
+    github: 'Eventual-Inc/Daft',
+    // description: '',  // optional
+  },
 };
 
 
@@ -77,3 +87,11 @@ export const getStaticProps = async ({ params }) => {
 
 ## Vaex <PypiBadge pypiName={REPOS['vaex']['pypi']} />
 {REPOS['vaex']?.description}
+
+
+## Ibis <PypiBadge pypiName={REPOS['ibis']['pypi']} />
+{REPOS['ibis']?.description}
+
+
+## Daft <PypiBadge pypiName={REPOS['daft']['pypi']} />
+{REPOS['daft']?.description}
