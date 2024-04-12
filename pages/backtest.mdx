@@ -1,27 +1,23 @@
 import { ReposTable } from '../components/ReposTable.mdx';
-import PypiBadge from '../components/PypiBadge';
+import { LibBlock } from '../components/LibBlock.mdx';
 import getGitHubReposData from '../utils/getGitHubReposData';
 
 export const REPOS = {
   vectorbt: {
     pypi: 'vectorbt',
     github: 'polakowo/vectorbt',
-    // description: '',  // optional
   },
   bt: {
     pypi: 'bt',
     github: 'pmorissette/bt',
-    // description: '',  // optional
   },
   pybroker: {
     pypi: 'lib-pybroker',
     github: 'edtechre/pybroker',
-    // description: '',  // optional
   },
   'backtesting.py': {
     pypi: 'backtesting',
     github: 'kernc/backtesting.py',
-    // description: '',  // optional
   },
 };
 
@@ -32,19 +28,4 @@ export const getStaticProps = async ({ params }) => {
 
 # Backtesting Frameworks, only support backtesting
 <ReposTable />
-
-
-## vectorbt <PypiBadge pypiName={REPOS['vectorbt']['pypi']} />
-{REPOS['vectorbt']?.description}
-
-
-## bt <PypiBadge pypiName={REPOS['bt']['pypi']} />
-{REPOS['bt']?.description}
-
-
-## pybroker <PypiBadge pypiName={REPOS['pybroker']['pypi']} />
-{REPOS['pybroker']?.description}
-
-
-## backtesting.py <PypiBadge pypiName={REPOS['backtesting.py']['pypi']} />
-{REPOS['backtesting.py']?.description}
+{Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}

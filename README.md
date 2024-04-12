@@ -15,9 +15,12 @@ Think of it as an **awesome-algo-trading** list on GitHub, but with a better pre
 - [Analytics](https://pytrade.org/analytics), for showing performance metrics
 - [Backtesting Data](https://pytrade.org/backtest_data), providing data for backtesting, free or paid
 - [Live Trading Data](https://pytrade.org/live_data), providing data for live trading
-- [Data Libraries](https://pytrade.org/data_libraries), for getting data from the data sources
-- [Research Tools](https://pytrade.org/research), for doing research on data
+- [Data Libraries](https://pytrade.org/data_libs), for getting data from the data sources
+- [Machine Learning Tools](https://pytrade.org/ml_tools), for applying machine learning on data
+- [MLOps Tools](https://pytrade.org/mlops_tools), for applying machine learning operations
 - [Data Tools](https://pytrade.org/data_tools), for manipulating data, e.g. pandas
+- [Research Tools](https://pytrade.org/researches), for doing research on data
+- [Dashboard Tools](https://pytrade.org/dashboards), for creating dashboards for trading
 - [Brokers & Exchanges](https://pytrade.org/trading_venues), providing APIs to support algo-trading
 - [API Integrations](https://pytrade.org/api_integrations), integrating with trading APIs without any frameworks
 - [Resources](https://pytrade.org/resources), other resources about algo-trading

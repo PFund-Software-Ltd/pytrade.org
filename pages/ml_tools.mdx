@@ -3,31 +3,25 @@ import { LibBlock } from '../components/LibBlock.mdx';
 import getGitHubReposData from '../utils/getGitHubReposData';
 
 export const REPOS = {
-  yfinance: {
-    pypi: 'yfinance',
-    github: 'ranaroussi/yfinance',
+  'scikit-learn': {
+    pypi: 'scikit-learn',
+    github: 'scikit-learn/scikit-learn',
   },
-  'binance-public-data': {
-    github: 'binance/binance-public-data',
+  pytorch: {
+    pypi: 'torch',
+    github: 'pytorch/pytorch',
   },
-  pfeed: {
-    pypi: 'pfeed',
-    github: 'PFund-Software-Ltd/pfeed',
+  pyro: {
+    pypi: 'pyro-ppl',
+    github: 'pyro-ppl/pyro',
   },
-  FinanceDatabase: {
-    pypi: 'financedatabase',
-    github: 'JerBouma/FinanceDatabase',
-  }
-};
+}
 
 export const getStaticProps = async ({ params }) => {
   const githubRepos = Object.values(REPOS).map(repo => repo.github);
   return await getGitHubReposData(githubRepos);
 };
 
-## Packages for data handling
-
-> **Disclaimer**: The founding contributor of pytrade.org is also the creator of `pfeed`. 
-
+## Machine Learing Tools
 <ReposTable />
 {Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}

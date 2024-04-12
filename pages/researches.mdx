@@ -3,21 +3,18 @@ import { LibBlock } from '../components/LibBlock.mdx';
 import getGitHubReposData from '../utils/getGitHubReposData';
 
 export const REPOS = {
-  yfinance: {
-    pypi: 'yfinance',
-    github: 'ranaroussi/yfinance',
+  quadratic: {
+    github: 'quadratichq/quadratic',
+    description: 'Quadratic | Data Science Spreadsheet with Python & SQL',  // optional
   },
-  'binance-public-data': {
-    github: 'binance/binance-public-data',
+  OpenBBTerminal: {
+    pypi: 'openbb',
+    github: 'OpenBB-Finance/OpenBBTerminal',
   },
-  pfeed: {
-    pypi: 'pfeed',
-    github: 'PFund-Software-Ltd/pfeed',
+  qlib: {
+    pypi: 'pyqlib',
+    github: 'microsoft/qlib',
   },
-  FinanceDatabase: {
-    pypi: 'financedatabase',
-    github: 'JerBouma/FinanceDatabase',
-  }
 };
 
 export const getStaticProps = async ({ params }) => {
@@ -25,9 +22,6 @@ export const getStaticProps = async ({ params }) => {
   return await getGitHubReposData(githubRepos);
 };
 
-## Packages for data handling
-
-> **Disclaimer**: The founding contributor of pytrade.org is also the creator of `pfeed`. 
-
+## Research Tools
 <ReposTable />
 {Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}

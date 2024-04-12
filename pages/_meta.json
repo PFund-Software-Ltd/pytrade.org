@@ -17,8 +17,11 @@
   "---": {
     "type": "separator"
   },
-  "research": "Research Tools",
+  "ml_tools": "Machine Learning Tools",
+  "mlops_tools": "MLOps Tools",
   "data_tools": "Data Tools",
+  "researches": "Research Tools",
+  "dashboards": "Dashboard Tools",
   "----": {
     "type": "separator"
   },
