@@ -1,0 +1,43 @@
+import { ReposTable } from '../components/ReposTable.mdx';
+import { LibBlock } from '../components/LibBlock.mdx';
+import getGitHubReposData from '../utils/getGitHubReposData';
+
+export const REPOS = {
+  tsai: {
+    pypi: 'tsai',
+    github: 'timeseriesAI/tsai',
+  },
+  stumpy: {
+    pypi: 'stumpy',
+    github: 'TDAmeritrade/stumpy',
+  },
+  tsfresh: {
+    pypi: 'tsfresh',
+    github: 'blue-yonder/tsfresh',
+  },
+  sktime: {
+    pypi: 'sktime',
+    github: 'sktime/sktime',
+  },
+  tslearn: {
+    pypi: 'tslearn',
+    github: 'tslearn-team/tslearn',
+  },
+  arch: {
+    pypi: 'arch',
+    github: 'bashtage/arch',
+  },
+  pyod: {
+    pypi: 'pyod',
+    github: 'yzhao062/pyod',
+  },
+};
+
+export const getStaticProps = async ({ params }) => {
+  const githubRepos = Object.values(REPOS).map(repo => repo.github);
+  return await getGitHubReposData(githubRepos);
+};
+
+# Trading Analytics, Performance Metrics, Statistics and Portfolio Optimization
+<ReposTable />
+{Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}

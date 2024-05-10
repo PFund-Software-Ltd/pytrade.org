@@ -12,6 +12,7 @@ Think of it as an **awesome-algo-trading** list on GitHub, but with a better pre
 - [Backtesting Frameworks](https://pytrade.org/backtest), do **NOT** support live trading
 - [Strategies](https://pytrade.org/strategies), shared trading strategies, examples and templates
 - [Models](https://pytrade.org/models), shared machine learning models for trading 
+- [Time Series Analysis](https://pytrade.org/ts_analysis), for analyzing time series data
 - [Analytics](https://pytrade.org/analytics), for showing performance metrics
 - [Backtesting Data](https://pytrade.org/backtest_data), providing data for backtesting, free or paid
 - [Live Trading Data](https://pytrade.org/live_data), providing data for live trading
@@ -22,6 +23,7 @@ Think of it as an **awesome-algo-trading** list on GitHub, but with a better pre
 - [Research Tools](https://pytrade.org/researches), for doing research on data
 - [Dashboard Tools](https://pytrade.org/dashboards), for creating dashboards for trading
 - [Brokers & Exchanges](https://pytrade.org/trading_venues), providing APIs to support algo-trading
+- [GPU Providers](https://pytrade.org/gpu_providers), providing GPUs to speed up training
 - [API Integrations](https://pytrade.org/api_integrations), integrating with trading APIs without any frameworks
 - [Resources](https://pytrade.org/resources), other resources about algo-trading
 
