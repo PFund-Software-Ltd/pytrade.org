@@ -25,6 +25,7 @@ Think of it as an **awesome-algo-trading** list on GitHub, but with a better pre
 - [Brokers & Exchanges](https://pytrade.org/trading_venues), providing APIs to support algo-trading
 - [GPU Providers](https://pytrade.org/gpu_providers), providing GPUs to speed up training
 - [API Integrations](https://pytrade.org/api_integrations), integrating with trading APIs without any frameworks
+- [Competitions](https://pytrade.org/competitions), for algo-trading competitions
 - [Resources](https://pytrade.org/resources), other resources about algo-trading
 
 
