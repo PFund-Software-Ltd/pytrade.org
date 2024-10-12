@@ -1,5 +1,8 @@
 <img src="./public/logo.jpg" width="160"> 
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/pytradeorg?style=social)](https://x.com/pytradeorg)
+
+
 # Python packages and resources for algo-trading
 
 Inspired by [PyViz](https://pyviz.org/), [PyTrade](https://pytrade.org) is a website showing a curated list of Python libraries and resources for algorithmic trading.
