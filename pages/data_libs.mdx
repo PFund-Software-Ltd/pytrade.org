@@ -30,4 +30,4 @@ export const getStaticProps = async ({ params }) => {
 > **Disclaimer**: The founding contributor of pytrade.org is also the creator of `pfeed`. 
 
 <ReposTable />
-{Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}
+{Object.keys(REPOS).map(repo => <LibBlock key={repo} repo={repo} REPOS={REPOS} />)}

@@ -30,5 +30,5 @@ export const getStaticProps = async ({ params }) => {
 
 # Backtesting Frameworks, only support backtesting
 <ReposTable />
-{Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}
+{Object.keys(REPOS).map(repo => <LibBlock key={repo} repo={repo} REPOS={REPOS} />)}
 
