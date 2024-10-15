@@ -1,18 +1,23 @@
 import { useData } from 'nextra/data';
 import PypiBadge from '../components/PypiBadge';
 
-
 export const LibBlock = ({ repo, REPOS }) => {
   const { repos } = useData();
   const pypi = REPOS[repo]?.pypi;
   const repoData = repos.find(r => r.name === repo);
   const description = repoData?.description || REPOS[repo]?.description || '';
+  const content = REPOS[repo]?.content || '';
   return (
     <>
       <h2>{repo}</h2>
       {pypi && <PypiBadge pypiName={pypi} />}
+     
       <div>
         {description}
+      </div>
+
+      <div style={{ marginTop: '-1.2rem' }}>
+        {content}
       </div>
     </>
   );

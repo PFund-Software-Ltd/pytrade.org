@@ -1,11 +1,13 @@
 import { ReposTable } from '../components/ReposTable.mdx';
 import { LibBlock } from '../components/LibBlock.mdx';
 import getGitHubReposData from '../utils/getGitHubReposData';
+import Vectorbt from '../contents/vectorbt.mdx';
 
 export const REPOS = {
   vectorbt: {
     pypi: 'vectorbt',
     github: 'polakowo/vectorbt',
+    content: <Vectorbt />
   },
   bt: {
     pypi: 'bt',
@@ -29,3 +31,4 @@ export const getStaticProps = async ({ params }) => {
 # Backtesting Frameworks, only support backtesting
 <ReposTable />
 {Object.keys(REPOS).map(repo => <LibBlock repo={repo} REPOS={REPOS} />)}
+
