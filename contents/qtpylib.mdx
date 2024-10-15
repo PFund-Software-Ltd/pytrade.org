@@ -1,0 +1,9 @@
+###### About
+> QTPyLib (Quantitative Trading Python Library) is a simple, event-driven algorithmic trading library written in Python, that supports backtesting, as well as paper and live trading via Interactive Brokers.
+
+###### Core Features
+> - A continuously-running Blotter that lets you capture market data even when your algos aren't running.
+> - Tick, Bar and Trade data is stored in MySQL for later analysis and backtesting.
+> - Using pub/sub architecture using ØMQ (ZeroMQ) for communicating between the Algo and the Blotter allows for a single Blotter/multiple Algos running on the same machine.
+> - Market data events use asynchronous, non-blocking architecture.
+> - Have orders delivered to your mobile via SMS (requires a Nexmo or Twilio account).

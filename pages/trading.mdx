@@ -1,63 +1,94 @@
 import { ReposTable } from '../components/ReposTable.mdx';
 import { LibBlock } from '../components/LibBlock.mdx';
 import getGitHubReposData from '../utils/getGitHubReposData';
+import Lean from '../contents/lean.mdx';
+import Nautilus_trader from '../contents/nautilus_trader.mdx';
+import Backtrader from '../contents/backtrader.mdx';
+import Pfund from '../contents/pfund.mdx';
+import Trading_strategy from '../contents/trading-strategy.mdx';
+import Blankly from '../contents/blankly.mdx';
+import Vnpy from '../contents/vnpy.mdx';
+import Freqtrade from '../contents/freqtrade.mdx';
+import Hummingbot from '../contents/hummingbot.mdx';
+import Jesse from '../contents/jesse.mdx';
+import SuperalgosContent from '../contents/Superalgos.mdx';
+import Qstrader from '../contents/qstrader.mdx';
+import Qtpylib from '../contents/qtpylib.mdx';
+import ZiplineReloaded from '../contents/zipline_reloaded.mdx';
+
 
 export const REPOS = {
   lean: {
     pypi: 'lean',
     github: 'QuantConnect/Lean',
+    content: <Lean />
   },
   nautilus_trader: {
     pypi: 'nautilus_trader',
     github: 'nautechsystems/nautilus_trader',
+    content: <Nautilus_trader />
   },
   backtrader: {
     pypi: 'backtrader',
     github: 'backtrader/backtrader',
+    content: <Backtrader />
   },
   pfund: {
     pypi: 'pfund',
     github: 'PFund-Software-Ltd/pfund',
+    content: <Pfund />
   },
   'trading-strategy': {
     pypi: 'trading-strategy',
     github: 'tradingstrategy-ai/trading-strategy',
+    content: <Trading_strategy />
   },
   blankly: {
     pypi: 'blankly',
     github: 'Blankly-Finance/blankly',
+    content: <Blankly />
   },
   vnpy: {
     pypi: 'vnpy',
     github: 'vnpy/vnpy',
+    content: <Vnpy />
   },
   freqtrade: {
     pypi: 'freqtrade',
     github: 'freqtrade/freqtrade',
+    content: <Freqtrade />
   },
   hummingbot: {
     pypi: 'hummingbot',
     github: 'hummingbot/hummingbot',
+    content: <Hummingbot />
   },
   jesse: {
     pypi: 'jesse',
     github: 'jesse-ai/jesse',
+    content: <Jesse />
   },
   Superalgos: {
     pypi: 'superalgos',
     github: 'Superalgos/Superalgos',
+    content: <SuperalgosContent />
   },
   qstrader: {
     pypi: 'qstrader',
     github: 'mhallsmoore/qstrader',
+    content: <Qstrader />
   },
   qtpylib: {
     pypi: 'qtpylib',
     github: 'ranaroussi/qtpylib',
+    content: <Qtpylib />
+
   },
   'zipline-reloaded': {
     pypi: 'zipline-reloaded',
     github: 'stefan-jansen/zipline-reloaded',
+    content: <ZiplineReloaded />
+
   },
 };
 

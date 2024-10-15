@@ -2,6 +2,10 @@ import { ReposTable } from '../components/ReposTable.mdx';
 import { LibBlock } from '../components/LibBlock.mdx';
 import getGitHubReposData from '../utils/getGitHubReposData';
 import Vectorbt from '../contents/vectorbt.mdx';
+import Bt from '../contents/bt.mdx';
+import Pybroker from '../contents/pybroker.mdx';
+import Backtestingpy from '../contents/backtestingpy.mdx';
+
 
 export const REPOS = {
   vectorbt: {
@@ -12,14 +16,17 @@ export const REPOS = {
   bt: {
     pypi: 'bt',
     github: 'pmorissette/bt',
+    content: <Bt />
   },
   pybroker: {
     pypi: 'lib-pybroker',
     github: 'edtechre/pybroker',
+    content: <Pybroker />
   },
   'backtesting.py': {
     pypi: 'backtesting',
     github: 'kernc/backtesting.py',
+    content: <Backtestingpy />
   },
 };
 
