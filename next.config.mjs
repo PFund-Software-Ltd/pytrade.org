@@ -1,3 +1,5 @@
+import nextra from 'nextra'
+
 const nextConfig = {
   output: 'export',
   images: {
@@ -5,12 +7,12 @@ const nextConfig = {
   },
 }
 
-const withNextra = require('nextra')({
+const withNextra = nextra({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.jsx'
 })
  
-module.exports = withNextra(nextConfig)
+export default withNextra(nextConfig)
  
 // If you have other Next.js configurations, you can pass them as the parameter:
 // module.exports = withNextra({ /* other next.js config */ })

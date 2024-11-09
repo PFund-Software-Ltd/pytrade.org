@@ -5,13 +5,13 @@
 		"start": "serve out"
 	},
 	"dependencies": {
-		"@next/mdx": "^14.1.0",
-		"next": "^14.1.0",
-		"nextra": "^2.13.3",
-		"nextra-theme-docs": "^2.13.3",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
+		"@next/mdx": "^15.0.3",
+		"next": "^15.0.3",
+		"nextra": "^3.2.3",
+		"nextra-theme-docs": "^3.2.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"react-icons": "^5.0.1",
-		"serve": "^14.2.1"
+		"serve": "^14.2.4"
 	}
 }

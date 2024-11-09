@@ -1,4 +1,4 @@
-{
+export default {
   "index": "Overview",
   "trading": "Trading Frameworks",
   "backtest": "Backtesting Frameworks",
