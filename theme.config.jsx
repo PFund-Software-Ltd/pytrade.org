@@ -20,6 +20,7 @@ export default {
         </span>
       </>
     ),
+    logoLink: 'https://pytrade.org',
     // faviconGlyph: "PT",
     head: (
       <>
