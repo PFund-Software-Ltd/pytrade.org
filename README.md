@@ -108,6 +108,7 @@ pnpm build && pnpm start
 - [Bybit Spot](https://public.bybit.com/spot/)
 - [Binance](https://www.binance.com/en/landing/data)
 - [OKX](https://www.okx.com/data-download)
+- [CCXT](https://docs.ccxt.com/#/)
 #### DeFi Data
 - [Trading Strategy](https://tradingstrategy.ai/trading-view)
 
