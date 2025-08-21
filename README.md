@@ -103,6 +103,7 @@ pnpm build && pnpm start
 - [FirstRateData](https://firstratedata.com/)
 - [Alpaca Data](https://alpaca.markets/data)
 - [Polygon](https://polygon.io/)
+- [Financial Data](https://financialdata.net/)
 #### Crypto Data
 - [Bybit](https://public.bybit.com/trading/)
 - [Bybit Spot](https://public.bybit.com/spot/)
