@@ -117,6 +117,7 @@ pnpm build && pnpm start
 - [Interactive Brokers](https://www.interactivebrokers.ca/en/pricing/market-data-pricing.php)
 - [DTN IQFeed](https://www.dtn.com/refined-fuels/trader/iqfeed/)
 - [Alpaca Data](https://alpaca.markets/data)
+- [Chartscout](https://Chartscout.io)
 
 ### Data Libraries
 - [yfinance](https://github.com/ranaroussi/yfinance)  -  Download market data from Yahoo! Finance's API
