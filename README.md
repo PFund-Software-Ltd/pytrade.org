@@ -76,6 +76,7 @@ pnpm build && pnpm start
 
 ### Trading Strategies
 - [Strategies on QuantConnect](https://www.quantconnect.com/learning/articles/investment-strategy-library)
+- [TradeSight](https://github.com/rmbell09-lang/tradesight)  -  RSI-based paper trading system for US equities using the Alpaca Markets API. Autonomous momentum signal generation, position management, and real-time P&L tracking.
 
 ### Machine Learning Models
 
