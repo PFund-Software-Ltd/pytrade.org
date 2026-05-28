@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@theme {
+  /* Primary colors - Orange */
+  --color-pm50: #fff4ed;       /* Palest peach */
+  --color-pm100: #ffe6d5;      /* Very light orange */
+  --color-pm200: #feccb0;      /* Light peachy orange */
+  --color-pm300: #fdaa82;      /* Medium light orange */
+  --color-pm400: #fc7a4a;      /* Light vibrant orange */
+  --color-pm500: #ff3e00;      /* Vivid orange */
+  --color-pm600: #e63700;      /* Medium dark orange */
+  --color-pm700: #c22f00;      /* Dark orange */
+  --color-pm800: #9e2600;      /* Very dark orange */
+  --color-pm900: #7a1d00;      /* Darkest orange-brown */
+
+  /* Secondary colors - Slate Gray */
+  --color-sd50: #f8fafc;     /* Almost white slate */
+  --color-sd100: #f1f5f9;    /* Very light slate */
+  --color-sd200: #e2e8f0;    /* Light slate */
+  --color-sd300: #cbd5e1;    /* Medium light slate */
+  --color-sd400: #94a3b8;    /* Light slate gray */
+  --color-sd500: #64748b;    /* Medium slate gray */
+  --color-sd600: #475569;    /* Medium dark slate */
+  --color-sd700: #334155;    /* Dark slate */
+  --color-sd800: #1e293b;    /* Very dark slate */
+  --color-sd900: #0f172a;    /* Darkest slate (almost black) */
+
+  /* Background colors */
+  --color-bg50: #ffffff;            /* Pure white (base surface) */
+  --color-bg100: #fafcfe;           /* Almost white with blue hint */
+  --color-bg200: #f4f7fb;           /* Very light blue-gray */
+  --color-bg300: #eef2f8;           /* Pale blue-gray */
+  --color-bg400: #e5ebf4;           /* Light neutral blue-gray */
+  --color-bg500: #dbe2ee;           /* Medium light blue-gray */
+  --color-bg600: #cbd6e8;           /* Mid blue-gray */
+  --color-bg700: #b3c3dd;           /* Medium blue-gray */
+  --color-bg800: #94a9cf;           /* Medium dark blue-gray */
+  --color-bg900: #6b8bc4;           /* Deep muted blue */
+
+  /* Text colors */
+  --color-tx50: #0f172a;          /* Darkest text (almost black) */
+  --color-tx100: #1e293b;         /* Very dark text */
+  --color-tx200: #334155;         /* Dark text */
+  --color-tx300: #475569;         /* Medium dark text */
+  --color-tx400: #64748b;         /* Medium text */
+  --color-tx500: #94a3b8;         /* Medium light text */
+  --color-tx600: #cbd5e1;         /* Light text */
+  --color-tx700: #e2e8f0;         /* Lighter text */
+  --color-tx800: #e5e5e5;         /* Very light text (primary) */
+  --color-tx900: #ffffff;         /* Pure white text */
+
+  /* Border colors */
+  --color-bd50: #0a0a0a;        /* Darkest border (barely visible) */
+  --color-bd100: #171717;       /* Very dark border */
+  --color-bd200: #262626;       /* Dark border */
+  --color-bd300: #333333;       /* Medium dark border */
+  --color-bd400: #404040;       /* Medium border */
+  --color-bd500: #525252;       /* Medium light border */
+  --color-bd600: #666666;       /* Light border */
+  --color-bd700: #8a8a8a;       /* Lighter border */
+  --color-bd800: #a3a3a3;       /* Very light border */
+  --color-bd900: #d4d4d4;       /* Lightest border */
+}
+
+/* Dark Mode */
+@layer theme {
+  .dark {
+    /* Primary colors - Softer Orange */
+    --color-pm50: #7a1d00;       /* Darkest burnt orange */
+    --color-pm100: #9e2600;      /* Very dark orange */
+    --color-pm200: #c22f00;      /* Dark orange */
+    --color-pm300: #e63700;      /* Medium dark orange */
+    --color-pm400: #ff5520;      /* Medium orange */
+    --color-pm500: #ff6b3d;      /* Softer, lighter orange */
+    --color-pm600: #ff8461;      /* Light orange */
+    --color-pm700: #ff9d84;      /* Lighter peachy orange */
+    --color-pm800: #ffb8a7;      /* Very light orange */
+    --color-pm900: #ffd3ca;      /* Palest peachy orange */
+
+    /* Secondary colors - Lighter Slate Gray */
+    --color-sd50: #0f172a;     /* Darkest slate (almost black) */
+    --color-sd100: #1e293b;    /* Very dark slate */
+    --color-sd200: #334155;    /* Dark slate */
+    --color-sd300: #475569;    /* Medium dark slate */
+    --color-sd400: #64748b;    /* Medium slate gray */
+    --color-sd500: #94a3b8;    /* Lighter slate gray */
+    --color-sd600: #cbd5e1;    /* Light slate */
+    --color-sd700: #e2e8f0;    /* Very light slate */
+    --color-sd800: #f1f5f9;    /* Almost white slate */
+    --color-sd900: #f8fafc;    /* Palest slate (almost white) */
+
+    /* Background colors */
+    --color-bg50: #0a0a0a;            /* Nearly black (deepest surface) */
+    --color-bg100: #121212;           /* Very dark gray */
+    --color-bg200: #1a1a1a;           /* Dark gray */
+    --color-bg300: #1e1e1e;           /* Dark charcoal gray */
+    --color-bg400: #262626;           /* Medium dark gray */
+    --color-bg500: #2e2e2e;           /* Medium gray */
+    --color-bg600: #383838;           /* Lighter medium gray */
+    --color-bg700: #4a4a4a;           /* Light gray */
+    --color-bg800: #5c5c5c;           /* Lighter gray */
+    --color-bg900: #707070;           /* Lightest gray */
+
+    /* Text colors */
+    --color-tx50: #ffffff;          /* Pure white text */
+    --color-tx100: #f8fafc;         /* Almost white */
+    --color-tx200: #f1f5f9;         /* Very light text */
+    --color-tx300: #cbd5e1;         /* Light gray text */
+    --color-tx400: #94a3b8;         /* Medium light gray text */
+    --color-tx500: #64748b;         /* Medium gray text */
+    --color-tx600: #475569;         /* Medium text */
+    --color-tx700: #334155;         /* Dark text */
+    --color-tx800: #1e293b;         /* Very dark text (primary) */
+    --color-tx900: #0f172a;         /* Darkest text (almost black) */
+
+    /* Border colors */
+    --color-bd50: #ffffff;        /* White border (invisible) */
+    --color-bd100: #f8fafc;       /* Almost invisible border */
+    --color-bd200: #f1f5f9;       /* Very subtle border */
+    --color-bd300: #e2e8f0;       /* Subtle border */
+    --color-bd400: #cbd5e1;       /* Light border */
+    --color-bd500: #94a3b8;       /* Medium border */
+    --color-bd600: #64748b;       /* Medium dark border */
+    --color-bd700: #475569;       /* Dark border */
+    --color-bd800: #334155;       /* Very dark border */
+    --color-bd900: #1e293b;       /* Darkest border */
+  }
+}

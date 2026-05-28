@@ -1,0 +1,42 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 7fc80bcb-0f30-4a71-bbd3-83fd2c8e56cd
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/PFund-Software-Ltd/pytrade.org
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+  license: CC-BY-4.0
+  subject: Guide
+  authors:
+  - softwareentrepreneer
+  venue:
+    title: 'PyTrade.org'
+    url: 'https://pytrade.org'
+  copyright: © PyTrade.org 2026. All rights reserved.
+  title: ''
+  description: None
+  keywords: []
+  thumbnail: ''
+  toc:
+  - file: index.md
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
+# See options at: https://mystmd.org/guide/website-templates#site-options
+  options:
+    analytics_google: '{{ GOOGLE_ANALYTICS_ID }}'
+    favicon: ../static/favicon.ico
+    logo: ../static/logo.svg
+    logo_dark: ../static/logo.svg
+    logo_text: pytrade.org
+    logo_url: 'https://pytrade.org'
+  title: pytrade.org's Guide
+  actions:
+  - title: ⭐ Star
+    url: https://github.com/PFund-Software-Ltd/pytrade.org
+extends: ../authors.yml

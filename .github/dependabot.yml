@@ -1,0 +1,30 @@
+# Dependabot configuration for automatic dependency updates
+# See: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Update GitHub Actions versions
+  # This keeps your workflow actions secure and up-to-date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates monthly (less noisy than weekly)
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    # Group all GitHub Actions updates into a single PR
+    # This reduces PR noise and makes reviewing easier
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    # Automatically add reviewers (optional - uncomment and customize)
+    # reviewers:
+    #   - "your-username"
+    # Limit how many Dependabot PRs can be open at once (optional)
+    # Default is 5, increase if you want more concurrent PRs
+    # open-pull-requests-limit: 10
+    #
+    # Note: Auto-merge is configured in GitHub repo settings, not here.
+    # Go to: Settings → General → Pull Requests → Allow auto-merge

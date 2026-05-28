@@ -4,7 +4,7 @@ requires-python = ">=3.11"
 
 [[package]]
 name = "afterpython"
-version = "0.3.11"
+version = "0.3.14"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -22,9 +22,9 @@ dependencies = [
     { name = "tomlkit" },
     { name = "trogon" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4d/e9/c32d8c1c78dc5c0c954520ff434d3bb0fc0c1c7654615807da9e82dde8e3/afterpython-0.3.11.tar.gz", hash = "sha256:beb055a7584390ff79224f7bef485a9d83ecd3f9edc2ba87166a559aaa3630e4", size = 54916, upload-time = "2026-05-26T03:56:36.594Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/30/49/4b18b03c0f69a161c1a7c01132dc77bfec3dace9bbabbcb7c793ee56a2d4/afterpython-0.3.14.tar.gz", hash = "sha256:e50128e4656667a328009065c78d2781136ad6f9181655aeba6e3656c75ec2d6", size = 56588, upload-time = "2026-05-27T18:54:20.411Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/20/1d042ebfae4daaa923decad47df71b11bcae28cc75cb58a3d46f3d9cca6b/afterpython-0.3.11-py3-none-any.whl", hash = "sha256:a602eda7a153f57b39c707b1f1c645bdd3626295bce4ec61a51c7b47d09197ee", size = 82581, upload-time = "2026-05-26T03:56:35.124Z" },
+    { url = "https://files.pythonhosted.org/packages/c9/01/a3253f02d30d41706f4987563da9ed214961a344f11ef41990ea1ce37d23/afterpython-0.3.14-py3-none-any.whl", hash = "sha256:e889f1c95b73b90f9952629f134fec862d3783445a4f5fd4e5b7ae2475d0cd3a", size = 84372, upload-time = "2026-05-27T18:54:19.171Z" },
 ]
 
 [[package]]
@@ -1730,7 +1730,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "afterpython", specifier = ">=0.3.11" },
+    { name = "afterpython", specifier = ">=0.3.14" },
     { name = "juv", specifier = ">=0.5.0" },
 ]
 

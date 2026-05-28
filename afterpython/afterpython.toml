@@ -1,0 +1,14 @@
+[company]
+name = "PyTrade.org"
+url = "https://pytrade.org"
+
+[website]
+url = "https://pytrade.org"
+favicon = "favicon.ico"
+logo = "logo.svg"
+logo_dark = "logo.svg"
+thumbnail = ""
+announcement = ""
+readme_py = "wasm"
+execute_readme_py = false
+api_reference = false

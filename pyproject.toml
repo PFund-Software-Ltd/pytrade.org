@@ -4,15 +4,15 @@ version = "0.1.0"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "afterpython>=0.3.12",
+    "afterpython>=0.3.14",
     "juv>=0.5.0",
 ]
 authors = [{name = "softwareentrepreneer", email = "softwareentrepreneer@gmail.com"}]
 
 [project.urls]
-homepage = ""
+homepage = "https://pytrade.org"
 repository = "https://github.com/PFund-Software-Ltd/pytrade.org"
-documentation = ""
+documentation = "https://pytrade.org/doc"
 [dependency-groups]
 dev = [
     "marimo[lsp,recommended]>=0.23.8",
