@@ -13,7 +13,7 @@ The curated list of Python libraries and resources for trading is available at [
 
 ## What You’ll Find
 
-[PyTrade](https://pytrade.org) is organized around learning content and curated resources:
+It is organized around learning content and curated resources:
 - **TradeLabs** — notebook-based labs for learning a topic in depth through hands-on examples.
 - **Tutorials** — guided journeys that take you from zero to a finished result.
 - **Guides** — step-by-step recipes for solving one specific problem.
