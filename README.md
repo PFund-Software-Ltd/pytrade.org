@@ -7,7 +7,6 @@
 
 ## What is PyTrade?
 [PyTrade](https://pytrade.org) is an **open-source learning website** for Python trading, with **free resources** for people to get started with using Python for **AI/algo-trading**, **backtesting strategies**, building trading tools, and exploring Python trading-related libraries. 
-> The site includes tutorials, guides, examples, blog posts, and curated resources.
 
 ## Curated Resources
 The curated list of Python libraries and resources for trading is available at [Documentation](https://pytrade.org/doc).
