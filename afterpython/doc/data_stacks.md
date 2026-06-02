@@ -87,7 +87,7 @@ repos_table(REPOS)
 - "✖️" = NOT SUPPORTED
 
 :::{seealso}
-For SDKs related to specific data providers, please go to [Data Sources](./data_sources.md)
+For SDKs related to specific data providers, please go to [Data Providers](./data_providers.md)
 :::
 
 
