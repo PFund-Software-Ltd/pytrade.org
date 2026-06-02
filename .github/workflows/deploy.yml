@@ -17,6 +17,9 @@ on:
       - 'afterpython/faq.yml'
       - 'afterpython/README.py'
       - '.github/workflows/deploy.yml'
+  # Runs at 00:00 UTC daily
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch:  # Allow manual deployment from Actions tab
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -41,7 +44,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 10
+          version: 11
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -60,21 +63,17 @@ jobs:
         with:
           version: "latest"
 
-      - name: Install afterpython
-        run: uv pip install --system afterpython
-
-      - name: Install marimo
-        # Needed by `ap build` when afterpython/README.py is a marimo notebook;
-        # afterpython shells out to the `marimo` CLI for the WASM export.
-        run: uv pip install --system marimo
+      - name: Install dependencies
+        run: uv pip install --system -r pyproject.toml
 
       - name: Install website dependencies
         run: pnpm install
         working-directory: ./afterpython/_website
 
       - name: Build website
-        run: |
-          ap build
+        run: ap build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

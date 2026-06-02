@@ -1,9 +1,12 @@
 version: 1
 project:
 # See more at: https://mystmd.org/guide/frontmatter#frontmatter-authors
-# See more at: https://mystmd.org/guide/frontmatter#frontmatter-authors
-# See more at: https://mystmd.org/guide/frontmatter#frontmatter-authors
-  contributors:
+  authors:
   - id: softwareentrepreneer
-    name: softwareentrepreneer
-    email: softwareentrepreneer@gmail.com
+    name:
+      given: Stephen
+      surname: Yau
+    email: softwareentrepreneer+pytrade@gmail.com
+    github: softwareentrepreneer
+    x: stephen_pfund
+    url: https://pfund.ai

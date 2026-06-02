@@ -4,7 +4,7 @@ url = "https://pytrade.org"
 
 [website]
 url = "https://pytrade.org"
-favicon = "favicon.ico"
+favicon = "favicon.svg"
 logo = "logo.svg"
 logo_dark = "logo.svg"
 thumbnail = ""

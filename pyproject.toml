@@ -1,26 +1,32 @@
 [project]
-name = "pytrade.org"
+name = "pytrade"
 version = "0.1.0"
+description = "Open-source learning website for Python trading"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "afterpython>=0.3.14",
-    "juv>=0.5.0",
+    "afterpython>=0.3.15",
+    "niquests>=3.18.8",
+    "python-dotenv>=1.2.2",
 ]
-authors = [{name = "softwareentrepreneer", email = "softwareentrepreneer@gmail.com"}]
+authors = [{name = "Stephen Yau", email = "softwareentrepreneer+pytrade@gmail.com"}]
 
 [project.urls]
 homepage = "https://pytrade.org"
 repository = "https://github.com/PFund-Software-Ltd/pytrade.org"
 documentation = "https://pytrade.org/doc"
+
 [dependency-groups]
 dev = [
-    "marimo[lsp,recommended]>=0.23.8",
+    "juv>=0.5.0",
+    "jupytext>=1.19.3",
+    "jupyterlab>=4.5.7",
+    "theme-darcula>=4.0.0",
 ]
 
-[tool.uv]
-package = false
-
 [build-system]
-requires = ["uv_build>=0.11.16"]
+requires = ["uv_build>=0.11.16,<0.12.0"]
 build-backend = "uv_build"
+
+# [tool.uv.sources]
+# afterpython = { path = "../../afterpython.org/afterpython", editable = true }

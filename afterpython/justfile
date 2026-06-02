@@ -1,0 +1,154 @@
+# pytrade notebook authoring — jupytext-paired MyST notebooks
+# ===========================================================================
+# Each notebook is a PAIR of files with the same name:
+#     afterpython/<type>/<name>.md      <- the text; edit this (Helix, etc.)
+#     afterpython/<type>/<name>.ipynb   <- the runnable notebook (JupyterLab)
+# `jupytext --sync` keeps them in step. <type> is one of the content folders
+# under afterpython/ (doc | guide | tutorial | example | blog).
+#
+# Paths are RELATIVE to your current directory (the natural way), and absolute
+# paths work too. For pair/sync/run, a relative path that isn't found also falls
+# back to afterpython/<path> — so from any content dir the old
+# `just sync tutorial/algo_101.md` form still works. (create is cwd/absolute
+# only; sync-all takes a bare <type>, not a path.)
+#
+# `just` finds this justfile by searching UPWARD, so run it from afterpython/ or
+# any folder below it (doc/, guide/, …) — not from the repo root.
+#
+# WHAT DO I PASS?  (this differs per recipe — read carefully)
+#   create   NO extension  -> cd doc && just create data_stacks
+#   pair     .ipynb        -> cd doc && just pair stacks.ipynb
+#   sync     .md           -> cd tutorial && just sync algo_101.md
+#   sync-all bare <type>   -> just sa doc        (or no arg for everything)
+#   run      NO extension  -> cd tutorial && just run algo_101
+#
+# RECIPES
+#   just                    list all recipes
+#
+#   just create <name>      create a NEW pair (.md + .ipynb), RELATIVE to your
+#                           current dir. No ext. e.g. `cd doc && just create data_stacks`.
+#                           Nested ok: just create verdicts/ai/foo
+#                           Refuses if it exists or you're not inside a content type.
+#
+#   just pair <file.ipynb>  adopt an EXISTING unpaired notebook (e.g. one made
+#                           via JupyterLab's "New Notebook") into the pair setup.
+#                           Relative to cwd. One-time per notebook.
+#                           e.g. cd doc && just pair stacks.ipynb
+#
+#   just sync <file.md>     regenerate one .ipynb from its edited .md. Relative
+#                           to cwd. (Your Helix C-j binding runs this for the
+#                           open file.)  e.g. cd guide && just sync setup.md
+#
+#   just sync-all [<type>]  sync EVERY pair, or just one type. Alias: `just sa`.
+#                           Run before a build or after `git pull`.
+#                           e.g. just sa        (all)      just sa doc   (doc only)
+#
+#   just run <name>         sync, then run the notebook in an ISOLATED juv env
+#                           built from its inline `# /// script` deps. Name only,
+#                           no ext, relative to cwd.  e.g. cd tutorial && just run algo_101
+#
+# PER-NOTEBOOK DEPENDENCIES (juv)
+#   To give a notebook its own deps without touching the project venv, write a
+#   PEP 723 block by hand in the .md as its own code-cell — the .md stays your
+#   single source of truth, juv only shows up at `just run`:
+#       ```{code-cell} ipython3
+#       :tags: [remove-cell]
+#       # /// script
+#       # requires-python = ">=3.11"
+#       # dependencies = ["polars", "rich"]
+#       # ///
+#       ```
+#   `just run` builds the env from this block ALONE (+ ipykernel), so list
+#   EVERYTHING the notebook imports here (incl. pfund/pfeed if used), not just
+#   the extras.
+#
+# NOTE: a new notebook only appears on the site once you add it to that type's
+# afterpython/<type>/myst.yml TOC — edit that yourself; jupytext won't touch it.
+# ===========================================================================
+
+base     := justfile_directory()
+jupytext := "jupytext"
+formats  := "ipynb,md:myst"
+
+# List available recipes
+default:
+    @just --list
+
+# Create a new paired notebook (.md + .ipynb), path RELATIVE to cwd, no ext: `cd doc && just create data_stacks`
+create path:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    cd "{{invocation_directory()}}"
+    p="{{path}}"
+    md="${p%.md}.md"                     # tolerate a trailing .md
+    case "$md" in /*) abs="$md" ;; *) abs="$PWD/$md" ;; esac
+    # the content type is whatever folder above us owns a myst.yml
+    d="$(dirname "$abs")"
+    while [ "$d" != "/" ] && [ ! -f "$d/myst.yml" ]; do d="$(dirname "$d")"; done
+    if [ ! -f "$d/myst.yml" ]; then
+        echo "error: '$md' is not inside a content type (no myst.yml found above it)"; exit 1
+    fi
+    if [ -e "$md" ]; then echo "refusing: $md already exists"; exit 1; fi
+    mkdir -p "$(dirname "$md")"
+    printf '# %s\n\n```{code-cell} ipython3\n:tags: [remove-input, remove-output]\n\n%%load_ext autoreload\n%%autoreload 2\n```\n' "$(basename "${md%.md}")" > "$md"
+    {{jupytext}} --set-formats {{formats}} --set-kernel python3 "$md"
+    echo "created  $md  +  ${md%.md}.ipynb"
+
+# Pair an EXISTING notebook to md:myst: `cd doc && just pair stacks.ipynb`
+pair file:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    f="{{file}}"
+    case "$f" in
+        /*) : ;;                                                  # absolute: use as-is
+        *) if [ -e "{{invocation_directory()}}/$f" ]; then f="{{invocation_directory()}}/$f"
+           else f="{{base}}/$f"; fi ;;                            # cwd, else afterpython/ fallback
+    esac
+    {{jupytext}} --set-formats {{formats}} "$f"
+
+# Sync one notebook's pair from its .md: `cd tutorial && just sync algo_101.md`
+sync file:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    f="{{file}}"
+    case "$f" in
+        /*) : ;;                                                  # absolute: use as-is
+        *) if [ -e "{{invocation_directory()}}/$f" ]; then f="{{invocation_directory()}}/$f"
+           else f="{{base}}/$f"; fi ;;                            # cwd, else afterpython/ fallback
+    esac
+    {{jupytext}} --sync "$f"
+
+alias sa := sync-all
+
+# Sync paired .md -> .ipynb. All types, or scope to one: `just sync-all` / `just sync-all doc`
+sync-all type="":
+    #!/usr/bin/env bash
+    set -uo pipefail
+    files=()
+    while IFS= read -r -d '' md; do
+        [ -e "${md%.md}.ipynb" ] && files+=("$md")
+    done < <(find {{base}}/{{type}} -name '*.md' \
+        -not -path '*/_build/*' \
+        -not -path '*/.ipynb_checkpoints/*' \
+        -not -path '*/.virtual_documents/*' -print0)
+    if [ ${#files[@]} -eq 0 ]; then echo "no paired notebooks under {{base}}/{{type}}"; exit 0; fi
+    {{jupytext}} --sync "${files[@]}"
+    echo "synced ${#files[@]} notebook(s)"
+
+# Syncs .md -> .ipynb first so the env matches your source of truth, then hands
+# off to juv.  Name only, no extension, relative to cwd: `cd tutorial && just run algo_101`
+# The notebook's deps live in a `# /// script ... # ///` block you write by hand
+# in the .md (own code-cell, `:tags: [remove-cell]`).  Use this instead of `lab`
+# when a notebook needs its own/extra deps without touching the project venv.
+# Run a notebook in an ISOLATED juv env from its inline `# /// script` deps: `cd tutorial && just run algo_101`
+run path:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    p="{{path}}"
+    case "$p" in
+        /*) : ;;                                                  # absolute: use as-is
+        *) if [ -e "{{invocation_directory()}}/$p.md" ]; then p="{{invocation_directory()}}/$p"
+           else p="{{base}}/$p"; fi ;;                            # cwd, else afterpython/ fallback
+    esac
+    jupytext --sync "$p.md"
+    juv run "$p.ipynb"

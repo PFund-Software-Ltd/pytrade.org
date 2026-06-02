@@ -1,2 +1,5 @@
 # MyST build outputs
 _build
+
+# jupyterlab
+.virtual_documents

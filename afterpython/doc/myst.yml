@@ -16,10 +16,25 @@ project:
     title: 'PyTrade.org'
     url: 'https://pytrade.org'
   copyright: © PyTrade.org 2026. All rights reserved.
-  title: ''
-  description: None
-  keywords: []
+  title: Documentation
+  description: Curated List of Python Trading Libraries and Resources
+  keywords: ["python", "trading"]
   thumbnail: ''
+  toc:
+    - file: overview.md
+    - file: ai_trading.ipynb
+    - file: algo_trading.ipynb
+    - file: portfolio.ipynb
+    - file: ml.ipynb
+    - file: quant.ipynb
+    - file: data_stacks.ipynb
+    - file: visualization.ipynb
+    - file: data_providers.md
+    - file: venues.md
+    - file: others.md
+    - pattern: verdicts/**/*.ipynb
+      hidden: true
+    
 site:
   template: book-theme
   # options:
@@ -33,7 +48,18 @@ site:
     logo_dark: ../static/logo.svg
     logo_text: pytrade.org
     logo_url: 'https://pytrade.org'
-  title: pytrade.org's Doc
+  title: PyTrade's Documentation
+  nav:
+  - title: PFund.ai
+    url: https://pfund.ai
+  - title: Tutorials
+    url: https://pytrade.org/tutorial
+  - title: Blogs
+    url: https://pytrade.org/blog
+  - title: Guides
+    url: https://pytrade.org/guide
+  - title: Examples
+    url: https://pytrade.org/example
   actions:
   - title: ⭐ Star
     url: https://github.com/PFund-Software-Ltd/pytrade.org

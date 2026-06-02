@@ -20,3 +20,10 @@ It is organized around learning content and curated resources:
 - **Examples** — minimal working code for one specific pattern.
 - **Blog** — time-stamped opinions, stories, updates, and takes on Python trading, AI trading, and the trading ecosystem.
 - **Documentation** — curated lists of Python trading libraries, frameworks, tools, and resources
+
+## Suggesting Resources
+
+- **Have a Python trading library or resource you think belongs in the [Documentation](https://pytrade.org/doc)?** Raise it in [GitHub Discussions](https://github.com/PFund-Software-Ltd/pytrade.org/discussions).
+- **Found a broken link or something that needs correcting?** Open an [Issue](https://github.com/PFund-Software-Ltd/pytrade.org/issues).
+
+> Heads up: this is a hand-curated list with a single editorial gatekeeper (me), so I can't promise every suggestion makes the cut — curation means saying no a lot. But I read everything, and good suggestions are always welcome.

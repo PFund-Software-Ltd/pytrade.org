@@ -1,0 +1,3 @@
+formats = "ipynb,md:myst"
+# Drop JupyterLab's per-cell noise from the .md; keep meaningful metadata (tags, etc.)
+cell_metadata_filter = "-editable,-slideshow"
