@@ -1,0 +1,9 @@
+root = true
+
+# MyST/Markdown notebooks: force 4-space indent so Python code-cells indent
+# correctly. Helix (and most editors) honor EditorConfig over content
+# auto-detection — needed because jupytext writes a 2-space YAML frontmatter
+# that otherwise makes Helix detect the whole .md file as 2-space.
+[*.md]
+indent_style = space
+indent_size = 4
