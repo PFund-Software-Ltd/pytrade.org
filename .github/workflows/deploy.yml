@@ -6,6 +6,8 @@ on:
       - main  # Deploy when pushing to main branch
     paths:
       # Trigger deployment only when content or website files change
+      # Code changes (src/) don't trigger it, so a docstring change doesn't update the API reference (pdoc).
+      # To update it, run this workflow manually (Actions tab, workflow_dispatch).
       - 'afterpython/doc/**'
       - 'afterpython/blog/**'
       - 'afterpython/tutorial/**'
@@ -14,13 +16,13 @@ on:
       - 'afterpython/static/**'
       - 'afterpython/_website/**'
       - 'afterpython/authors.yml'
-      - 'afterpython/afterpython.toml'
       - 'afterpython/faq.yml'
       - 'afterpython/README.py'
+      - 'afterpython/afterpython.toml'
+      # metadata.json (name, version, urls) and the homepage description
+      - 'pyproject.toml'
+      - 'README.md'
       - '.github/workflows/deploy.yml'
-  # Runs at 00:00 UTC daily
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:  # Allow manual deployment from Actions tab
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -40,39 +42,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 11
+          version: 12
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: 'pnpm'
           cache-dependency-path: './afterpython/_website/pnpm-lock.yaml'
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.11'
-
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
-        with:
-          version: "latest"
+        uses: astral-sh/setup-uv@v10.3.3
 
-      - name: Install dependencies
-        run: uv pip install --system -r pyproject.toml
+      - name: Install the project
+        # your package + its dependencies (pdoc imports it for the API reference)
+        # + the dev group, which has afterpython (`uv add --dev afterpython`), at uv.lock's versions.
+        # A marimo afterpython/README.py needs `uv add --dev "afterpython[marimo]"` instead.
+        run: uv sync --locked
 
       - name: Install website dependencies
         run: pnpm install
         working-directory: ./afterpython/_website
 
       - name: Build website
-        run: ap build
+        run: uv run --no-sync ap build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
