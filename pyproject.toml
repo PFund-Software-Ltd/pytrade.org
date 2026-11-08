@@ -3,6 +3,8 @@ name = "pytrade"
 version = "0.1.0"
 description = "Open-source learning website for Python trading"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.13"
 dependencies = [
     "afterpython>=0.4.1",
