@@ -14,6 +14,7 @@
 - [Financial Modeling Prep](https://site.financialmodelingprep.com)
 - [Finnhub](https://finnhub.io/)
 - [Tiingo](https://www.tiingo.com/)
+- [roic.ai](https://www.roic.ai/)
 
 ---
 
