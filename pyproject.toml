@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "afterpython>=0.4.1",
-    "niquests>=3.18.8",
+    "httpx2>=2.16.0",
     "python-dotenv>=1.2.4",
 ]
 authors = [{name = "Stephen Yau", email = "softwareentrepreneer+pytrade@gmail.com"}]

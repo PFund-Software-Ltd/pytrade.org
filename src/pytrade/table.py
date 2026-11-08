@@ -8,7 +8,7 @@ repo key to ``{"github": "owner/name", <capability fields...>}`` and calls
 import os
 from typing import Any
 
-import niquests
+import httpx2
 from dotenv import load_dotenv
 
 from pytrade.utils import html_table
@@ -38,13 +38,15 @@ def _get(url: str) -> Any:
     like rate limiting — surface that message instead of a cryptic KeyError.
     """
     load_dotenv(override=True)
-    resp = niquests.get(
+    resp = httpx2.get(
         url,
         headers=(
             {"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"}
             if os.environ.get("GITHUB_TOKEN")
             else {}
         ),
+        # GitHub answers renamed/transferred repos with a 301
+        follow_redirects=True,
     )
     data = resp.json()
     if resp.status_code != 200:
