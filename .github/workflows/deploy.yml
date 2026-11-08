@@ -23,6 +23,8 @@ on:
       - 'pyproject.toml'
       - 'README.md'
       - '.github/workflows/deploy.yml'
+  schedule:
+    - cron: '0 0 * * *'  # Daily at 00:00 UTC, refreshes the GitHub stats tables
   workflow_dispatch:  # Allow manual deployment from Actions tab
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
