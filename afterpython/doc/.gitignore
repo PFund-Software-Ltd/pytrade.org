@@ -3,3 +3,7 @@ _build
 
 # jupyterlab
 .virtual_documents
+
+# afterpython: .ipynb files here are generated from marimo notebooks (.py)
+*.ipynb
+__marimo__/

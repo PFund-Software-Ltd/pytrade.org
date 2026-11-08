@@ -7,9 +7,7 @@ license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.13"
 dependencies = [
-    "afterpython>=0.4.1",
-    "httpx2>=2.16.0",
-    "python-dotenv>=1.2.4",
+    "afterpython[marimo]>=0.4.3",
 ]
 authors = [{name = "Stephen Yau", email = "softwareentrepreneer+pytrade@gmail.com"}]
 
@@ -17,14 +15,6 @@ authors = [{name = "Stephen Yau", email = "softwareentrepreneer+pytrade@gmail.co
 homepage = "https://pytrade.org"
 repository = "https://github.com/PFund-Software-Ltd/pytrade.org"
 documentation = "https://pytrade.org/doc"
-
-[dependency-groups]
-dev = [
-    "juv>=0.5.0",
-    "jupytext>=1.19.6",
-    "jupyterlab>=4.6.6",
-    "theme-darcula>=4.0.0",
-]
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
