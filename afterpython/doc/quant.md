@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.19.3
+    jupytext_version: 1.19.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -53,6 +53,10 @@ REPOS = {
     "rateslib": {
         "github": "attack68/rateslib",
         "Status": ProjectStatus.ACTIVE,  
+    },
+    "lacuna": {
+        "github": "eyenoticeall/Lacuna",
+        "Status": ProjectStatus.ACTIVE,
     },
     "tf-quant-finance": {
         "github": "google/tf-quant-finance",
