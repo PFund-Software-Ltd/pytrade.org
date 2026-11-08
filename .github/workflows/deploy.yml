@@ -72,7 +72,9 @@ jobs:
         working-directory: ./afterpython/_website
 
       - name: Build website
-        run: uv run --no-sync ap build
+        # --execute reruns the notebooks so outputs (e.g. the GitHub stats tables) are fresh,
+        # instead of reusing the stale outputs saved in the .ipynb files
+        run: uv run --no-sync ap build --execute
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

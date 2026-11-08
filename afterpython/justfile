@@ -152,3 +152,16 @@ run path:
     esac
     jupytext --sync "$p.md"
     juv run "$p.ipynb"
+
+# Why the empty JUPYTER_CONFIG_DIR: `myst build --execute` starts its own Jupyter
+# server and only connects if that server prints a `?token=` URL. A password in
+# ~/.jupyter (jupyter_server_config.json) disables the token, so myst can't connect,
+# silently skips execution and keeps the stale outputs saved in the .ipynb files.
+# An empty config dir means no password for this build only; ~/.jupyter is untouched
+# and extensions (jupytext) still load from the venv. CI needs none of this.
+# GITHUB_TOKEN (from the gh CLI) raises the GitHub API rate limit for the stats
+# tables (pytrade.table) from 60 to 5,000 requests/hour.
+
+# Build the site locally, executing notebooks so outputs are fresh: `just build`
+build:
+    cd "{{base}}/.." && JUPYTER_CONFIG_DIR="$(mktemp -d)" GITHUB_TOKEN="$(gh auth token)" uv run ap build --execute
