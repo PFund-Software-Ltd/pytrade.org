@@ -1,20 +1,18 @@
 <script lang="ts">
 	import '../app.css';
 	import type { LayoutProps } from './$types';
-	import ThemeToggle from '$components/ThemeToggle.svelte';
-	import Logo from '$components/Logo.svelte';
-	import Footer from '$components/Footer.svelte';
-	import SearchBar from '$components/SearchBar.svelte';
-	import GitHubIcon from '$components/GitHubIcon.svelte';
-	import { dev } from '$app/environment';
-	import { env } from '$env/dynamic/public';
-	import { resolve } from '$app/paths';
+	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
+	import Logo from '#lib/components/Logo.svelte';
+	import Footer from '#lib/components/Footer.svelte';
+	import SearchBar from '#lib/components/SearchBar.svelte';
+	import GitHubIcon from '#lib/components/GitHubIcon.svelte';
+	import { devContentUrl } from '#lib/utils/index.ts';
+	import { asset, resolve } from '$app/paths';
+	import type { AssetPath } from '$app/types';
 
 	let { data, children }: LayoutProps = $props();
 
-	const faviconType = $derived(
-		data.favicon?.endsWith('.svg') ? 'image/svg+xml' : 'image/x-icon'
-	);
+	const faviconType = $derived(data.favicon?.endsWith('.svg') ? 'image/svg+xml' : 'image/x-icon');
 
 	// Extract repository URL safely
 	const repositoryUrl = $derived(
@@ -27,7 +25,7 @@
 
 <svelte:head>
 	<title>{siteTitle}</title>
-	<link rel="icon" type={faviconType} href={resolve(`/${data.favicon}`)} />
+	<link rel="icon" type={faviconType} href={asset(data.favicon as AssetPath)} />
 </svelte:head>
 
 <div class="flex min-h-screen flex-col bg-bg50">
@@ -35,10 +33,10 @@
 		<div class="flex items-center">
 			<Logo size="md" text={data.name} logo={data.logo} logoDark={data.logo_dark} />
 			<ul class="flex flex-1 justify-center gap-18">
-				{#if dev ? env.PUBLIC_DOC_URL : data.contentTypes?.doc}
+				{#if devContentUrl('doc') || data.contentTypes?.doc}
 					<li>
 						<a
-							href={dev ? env.PUBLIC_DOC_URL : resolve('/doc')}
+							href={devContentUrl('doc') || resolve('doc')}
 							target="_blank"
 							rel="external noopener noreferrer"
 						>
@@ -49,7 +47,7 @@
 				{#if data.contentTypes?.api_reference}
 					<li>
 						<a
-							href="{resolve('/api_reference')}/"
+							href="{resolve('api_reference')}/"
 							target="_blank"
 							rel="external noopener noreferrer"
 						>
@@ -57,29 +55,29 @@
 						</a>
 					</li>
 				{/if}
-				{#if dev ? env.PUBLIC_TUTORIAL_URL : data.contentTypes?.tutorial}
+				{#if devContentUrl('tutorial') || data.contentTypes?.tutorial}
 					<li>
-						<a href={resolve('/tutorial')} data-sveltekit-preload-data>Tutorials</a>
+						<a href={resolve('tutorial')} data-sveltekit-preload-data>Tutorials</a>
 					</li>
 				{/if}
-				{#if dev ? env.PUBLIC_EXAMPLE_URL : data.contentTypes?.example}
+				{#if devContentUrl('example') || data.contentTypes?.example}
 					<li>
-						<a href={resolve('/example')} data-sveltekit-preload-data>Examples</a>
+						<a href={resolve('example')} data-sveltekit-preload-data>Examples</a>
 					</li>
 				{/if}
-				{#if dev ? env.PUBLIC_GUIDE_URL : data.contentTypes?.guide}
+				{#if devContentUrl('guide') || data.contentTypes?.guide}
 					<li>
-						<a href={resolve('/guide')} data-sveltekit-preload-data>Guides</a>
+						<a href={resolve('guide')} data-sveltekit-preload-data>Guides</a>
 					</li>
 				{/if}
-				{#if dev ? env.PUBLIC_BLOG_URL : data.contentTypes?.blog}
+				{#if devContentUrl('blog') || data.contentTypes?.blog}
 					<li>
-						<a href={resolve('/blog')} data-sveltekit-preload-data>Blog</a>
+						<a href={resolve('blog')} data-sveltekit-preload-data>Blog</a>
 					</li>
 				{/if}
 				{#if data.contentTypes?.faq}
 					<li>
-						<a href={resolve('/faq')} data-sveltekit-preload-data>FAQs</a>
+						<a href={resolve('faq')} data-sveltekit-preload-data>FAQs</a>
 					</li>
 				{/if}
 				<!-- <li>

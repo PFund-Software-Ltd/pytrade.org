@@ -72,16 +72,16 @@
 </script>
 
 {#if totalPages >= 1}
-	<nav class="flex justify-center items-center gap-2 py-8" aria-label="Pagination">
+	<nav class="flex items-center justify-center gap-2 py-8" aria-label="Pagination">
 		<!-- Previous Button -->
 		<button
 			type="button"
 			onclick={goToPrevious}
 			disabled={currentPage === 1}
-			class="px-3 py-2 rounded bg-bg100 text-tx50 border border-bd800 hover:bg-bg200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+			class="flex items-center gap-2 rounded border border-bd800 bg-bg100 px-3 py-2 text-tx50 transition-colors hover:bg-bg200 disabled:cursor-not-allowed disabled:opacity-50"
 			aria-label="Previous page"
 		>
-			<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 			</svg>
 		</button>
@@ -96,10 +96,10 @@
 						type="button"
 						onclick={() => goToPage(page)}
 						class={[
-							'min-w-10 px-3 py-2 rounded transition-colors',
+							'min-w-10 rounded px-3 py-2 transition-colors',
 							currentPage === page
-								? 'bg-pm500 text-white font-semibold'
-								: 'bg-bg100 text-tx50 border border-bd800 hover:bg-bg200'
+								? 'bg-pm500 font-semibold text-white'
+								: 'border border-bd800 bg-bg100 text-tx50 hover:bg-bg200'
 						]}
 						aria-label="Page {page}"
 						aria-current={currentPage === page ? 'page' : undefined}
@@ -115,10 +115,10 @@
 			type="button"
 			onclick={goToNext}
 			disabled={currentPage === totalPages}
-			class="px-3 py-2 rounded bg-bg100 text-tx50 border border-bd800 hover:bg-bg200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+			class="flex items-center gap-2 rounded border border-bd800 bg-bg100 px-3 py-2 text-tx50 transition-colors hover:bg-bg200 disabled:cursor-not-allowed disabled:opacity-50"
 			aria-label="Next page"
 		>
-			<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 			</svg>
 		</button>

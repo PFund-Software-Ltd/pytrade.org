@@ -1,11 +1,11 @@
 <script lang="ts">
-	import FeaturedPost from '$lib/components/FeaturedPost.svelte';
-	import PostCard from '$components/PostCard.svelte';
-	import FilterBar from '$lib/components/FilterBar.svelte';
-	import Pagination from '$lib/components/Pagination.svelte';
-	import { getThumbnailUrl } from '$lib/utils/content';
+	import FeaturedPost from '#lib/components/FeaturedPost.svelte';
+	import PostCard from '#lib/components/PostCard.svelte';
+	import FilterBar from '#lib/components/FilterBar.svelte';
+	import Pagination from '#lib/components/Pagination.svelte';
+	import { getThumbnailUrl } from '#lib/utils/content.ts';
 	import type { PageData } from './$types';
-	import type { ContentJson } from '$lib/types';
+	import type { ContentJson } from '#lib/types/index.ts';
 
 	let { data }: { data: PageData } = $props();
 
@@ -21,13 +21,7 @@
 	);
 
 	// Extract all unique tags from posts
-	const allTags = $derived.by(() => {
-		const tagSet = new Set<string>();
-		data.posts.forEach((post) => {
-			post.tags?.forEach((tag) => tagSet.add(tag));
-		});
-		return Array.from(tagSet).sort();
-	});
+	const allTags = $derived([...new Set(data.posts.flatMap((post) => post.tags ?? []))].sort());
 
 	// Filter posts by selected tags
 	const filteredPosts = $derived.by(() => {
@@ -89,8 +83,10 @@
 
 	// Reset to page 1 when filters change
 	$effect(() => {
-		// This runs whenever selectedTags or sortBy changes
+		// Reading these makes the effect re-run whenever selectedTags or sortBy changes
+		// oxlint-disable-next-line no-unused-expressions
 		selectedTags;
+		// oxlint-disable-next-line no-unused-expressions
 		sortBy;
 		currentPage = 1;
 	});
@@ -99,8 +95,6 @@
 	const displayTitle = $derived.by(() => {
 		return data.contentType.charAt(0).toUpperCase() + data.contentType.slice(1);
 	});
-
-	
 </script>
 
 <svelte:head>
@@ -124,12 +118,7 @@
 		</div>
 	{/if}
 
-	<FilterBar
-		contentType={data.contentType}
-		{allTags}
-		bind:selectedTags
-		bind:sortBy
-	/>
+	<FilterBar contentType={data.contentType} {allTags} bind:selectedTags bind:sortBy />
 
 	<!-- Grid Items -->
 	{#if paginatedGridPosts.length > 0}

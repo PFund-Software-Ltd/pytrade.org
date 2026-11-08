@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset, resolve } from '$app/paths';
+	import type { AssetPath } from '$app/types';
 
 	type LogoProps = {
 		class?: string;
@@ -20,12 +21,14 @@
 	}: LogoProps = $props();
 
 	// Probed in order when no explicit `logo` is configured via metadata.
-	const DEFAULT_FORMATS = ['/logo.svg', '/logo.png', '/logo.jpg', '/logo.jpeg'];
+	const DEFAULT_FORMATS = ['logo.svg', 'logo.png', 'logo.jpg', 'logo.jpeg'];
 
-	function normalizePath(value: string | null | undefined): string | null {
-		const trimmed = value?.trim();
+	// `asset()` expects a path relative to `static/` (no leading slash);
+	// logo paths come from metadata at runtime, hence the `AssetPath` cast.
+	function normalizePath(value: string | null | undefined): AssetPath | null {
+		const trimmed = value?.trim().replace(/^\/+/, '');
 		if (!trimmed) return null;
-		return trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+		return trimmed as AssetPath;
 	}
 
 	const explicitLight = $derived(normalizePath(logo));
@@ -39,7 +42,7 @@
 		if (!hasLight) return null;
 		if (explicitLight) return asset(explicitLight);
 		if (lightFallbackIndex >= DEFAULT_FORMATS.length) return null;
-		return asset(DEFAULT_FORMATS[lightFallbackIndex]);
+		return asset(DEFAULT_FORMATS[lightFallbackIndex] as AssetPath);
 	});
 	const darkSrc = $derived(darkPath && hasDark ? asset(darkPath) : null);
 

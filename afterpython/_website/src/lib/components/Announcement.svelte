@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MarkdownRenderer from '$components/MarkdownRenderer.svelte';
+	import MarkdownRenderer from '#lib/components/MarkdownRenderer.svelte';
 
 	type AnnouncementProps = {
 		content: string;

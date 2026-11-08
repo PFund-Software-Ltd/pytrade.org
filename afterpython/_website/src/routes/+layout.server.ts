@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-import { CONTENT_TYPES } from '$lib/utils/content';
+import { CONTENT_TYPES } from '#lib/utils/content.ts';
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 
@@ -9,7 +9,7 @@ export const prerender = true;
 
 async function checkContentType(type: string): Promise<boolean> {
 	try {
-		await import(`$static/${type}.json`);
+		await import(`#static/${type}.json`);
 		return true;
 	} catch {
 		return false;
@@ -37,7 +37,7 @@ type LogoMetadata = {
 export const load: LayoutServerLoad = async () => {
 	try {
 		// Dynamic import to handle missing file gracefully
-		const metadata = await import('$static/metadata.json');
+		const metadata = await import('#static/metadata.json');
 		const metadataData = metadata.default as typeof metadata.default & LogoMetadata;
 
 		// Check which content types exist - dynamically from CONTENT_TYPES

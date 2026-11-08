@@ -1,0 +1,18 @@
+# Test content for developing the template (e.g. giscus comments).
+# Built by `vp run build:dev-content`, mirroring `ap build` in afterpython.
+version: 1
+extends: ../authors.yml
+project:
+  license: CC-BY-4.0
+  subject: Blog
+  github: https://github.com/AfterPythonOrg/afterpython
+  authors:
+  - stephen_yau
+  toc:
+  - file: index.md
+  - file: hello-world.md
+  - file: notebooks-and-code.md
+  - file: release-notes.md
+site:
+  template: book-theme
+  title: Test Blog

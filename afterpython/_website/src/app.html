@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script>
 			// Prevent theme flash by applying theme before page renders
-			(function() {
+			(function () {
 				const stored = localStorage.getItem('theme');
 				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 				const theme = stored || (prefersDark ? 'dark' : 'light');

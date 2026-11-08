@@ -342,3 +342,6 @@ tests/data/
 **/_build/
 !afterpython/_website/src/lib/
 afterpython/_website.backup/
+
+# zed settings
+**/.zed/

@@ -1,49 +1,49 @@
-import { browser } from '$app/environment';
+import { browser } from '$app/env';
 
 type Theme = 'light' | 'dark';
+export type ThemeMode = Theme | 'system';
+
+const MODES: ThemeMode[] = ['system', 'light', 'dark'];
 
 class ThemeStore {
-	theme = $state<Theme>('light');
+	/** What the user picked; 'system' follows the OS */
+	mode = $state<ThemeMode>('system');
+	/** OS preference, kept live */
+	#systemTheme = $state<Theme>('light');
+	/** Theme actually applied */
+	theme = $derived<Theme>(this.mode === 'system' ? this.#systemTheme : this.mode);
 
 	constructor() {
 		if (browser) {
-			// Initialize from localStorage or system preference
-			const stored = localStorage.getItem('theme') as Theme | null;
-			const prefersDarkQuery: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-			const systemPrefersDark: boolean = prefersDarkQuery.matches;
+			const stored = localStorage.getItem('theme');
+			if (stored === 'light' || stored === 'dark') this.mode = stored;
 
-			this.theme = stored || (systemPrefersDark ? 'dark' : 'light');
-			this.applyTheme(this.theme);
-
-			// Listen for system preference changes
+			const prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			this.#systemTheme = prefersDarkQuery.matches ? 'dark' : 'light';
 			prefersDarkQuery.addEventListener('change', (e) => {
-				if (!localStorage.getItem('theme')) {
-					this.setTheme(e.matches ? 'dark' : 'light');
-				}
+				this.#systemTheme = e.matches ? 'dark' : 'light';
+				this.#apply();
 			});
+			this.#apply();
 		}
 	}
 
-	setTheme(newTheme: Theme) {
-		this.theme = newTheme;
-		this.applyTheme(newTheme);
+	setMode(mode: ThemeMode) {
+		this.mode = mode;
 		if (browser) {
-			localStorage.setItem('theme', newTheme);
+			if (mode === 'system') localStorage.removeItem('theme');
+			else localStorage.setItem('theme', mode);
+			this.#apply();
 		}
 	}
 
+	/** Cycle: system → light → dark → system */
 	toggle() {
-		this.setTheme(this.theme === 'light' ? 'dark' : 'light');
+		this.setMode(MODES[(MODES.indexOf(this.mode) + 1) % MODES.length]);
 	}
 
-	private applyTheme(theme: Theme) {
-		if (browser) {
-			if (theme === 'dark') {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
-		}
+	#apply() {
+		document.documentElement.classList.toggle('dark', this.theme === 'dark');
 	}
 }
 

@@ -3,11 +3,11 @@ name = "pytrade"
 version = "0.1.0"
 description = "Open-source learning website for Python trading"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
-    "afterpython>=0.3.19",
+    "afterpython>=0.4.1",
     "niquests>=3.18.8",
-    "python-dotenv>=1.2.2",
+    "python-dotenv>=1.2.4",
 ]
 authors = [{name = "Stephen Yau", email = "softwareentrepreneer+pytrade@gmail.com"}]
 
@@ -19,13 +19,13 @@ documentation = "https://pytrade.org/doc"
 [dependency-groups]
 dev = [
     "juv>=0.5.0",
-    "jupytext>=1.19.3",
-    "jupyterlab>=4.5.7",
+    "jupytext>=1.19.6",
+    "jupyterlab>=4.6.6",
     "theme-darcula>=4.0.0",
 ]
 
 [build-system]
-requires = ["uv_build>=0.12.13,<0.13.0"]
+requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
 
 # [tool.uv.sources]

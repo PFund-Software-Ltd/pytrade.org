@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ContentJson } from '$lib/types';
+	import type { ContentJson } from '#lib/types/index.ts';
 
 	let {
 		post,

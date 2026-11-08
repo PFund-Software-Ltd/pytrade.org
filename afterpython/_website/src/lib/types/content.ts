@@ -1,4 +1,4 @@
-import { CONTENT_TYPES } from '$lib/utils/content';
+import type { CONTENT_TYPES } from '#lib/utils/content-types.ts';
 
 // Derive the type from the constant
 export type ContentType = (typeof CONTENT_TYPES)[number];
@@ -13,5 +13,5 @@ export interface ContentJson {
 	tags?: string[];
 	thumbnail?: string;
 	thumbnailOptimized?: string;
-	featured?: boolean;  // if true, it is a featured post
+	featured?: boolean; // if true, it is a featured post
 }

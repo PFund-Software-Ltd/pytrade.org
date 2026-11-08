@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ContentJson, ContentType } from '$lib/types';
-	import { getPostHref, getThumbnailUrl, formatDate, getAuthorName } from '$lib/utils/content';
+	import type { ContentJson, ContentType } from '#lib/types/index.ts';
+	import { getPostHref, getThumbnailUrl, formatDate, getAuthorName } from '#lib/utils/content.ts';
 	import PostContent from './PostContent.svelte';
 
 	let {

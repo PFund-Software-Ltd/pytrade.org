@@ -1,9 +1,9 @@
 <script lang="ts">
-	import GitHubIcon from '$components/GitHubIcon.svelte';
-	import { dev } from '$app/environment';
-	import { env } from '$env/dynamic/public';
-	import { resolve } from '$app/paths';
-	import type { ContentType } from '$lib/types';
+	import GitHubIcon from '#lib/components/GitHubIcon.svelte';
+	import { devContentUrl } from '#lib/utils/index.ts';
+
+	import { asset, resolve } from '$app/paths';
+	import type { ContentType } from '#lib/types/index.ts';
 
 	type FooterProps = {
 		projectName?: string;
@@ -40,47 +40,47 @@
 			<div>
 				<h3 class="mb-3 text-lg font-semibold text-tx50">Resources</h3>
 				<ul class="space-y-2 text-sm text-tx300">
-					{#if dev ? env.PUBLIC_DOC_URL : contentTypes?.doc}
+					{#if devContentUrl('doc') || contentTypes?.doc}
 						<li>
 							<a
-								href={dev ? env.PUBLIC_DOC_URL : resolve('/doc')}
+								href={devContentUrl('doc') || resolve('doc')}
 								target="_blank"
 								rel="external noopener noreferrer"
 								class="transition-colors hover:text-tx50">Documentation</a
 							>
 						</li>
 					{/if}
-					{#if dev ? env.PUBLIC_TUTORIAL_URL : contentTypes?.tutorial}
+					{#if devContentUrl('tutorial') || contentTypes?.tutorial}
 						<li>
 							<a
-								href={resolve('/tutorial')}
+								href={resolve('tutorial')}
 								data-sveltekit-preload-data
 								class="transition-colors hover:text-tx50">Tutorials</a
 							>
 						</li>
 					{/if}
-					{#if dev ? env.PUBLIC_EXAMPLE_URL : contentTypes?.example}
+					{#if devContentUrl('example') || contentTypes?.example}
 						<li>
 							<a
-								href={resolve('/example')}
+								href={resolve('example')}
 								data-sveltekit-preload-data
 								class="transition-colors hover:text-tx50">Examples</a
 							>
 						</li>
 					{/if}
-					{#if dev ? env.PUBLIC_GUIDE_URL : contentTypes?.guide}
+					{#if devContentUrl('guide') || contentTypes?.guide}
 						<li>
 							<a
-								href={resolve('/guide')}
+								href={resolve('guide')}
 								data-sveltekit-preload-data
 								class="transition-colors hover:text-tx50">Guides</a
 							>
 						</li>
 					{/if}
-					{#if dev ? env.PUBLIC_BLOG_URL : contentTypes?.blog}
+					{#if devContentUrl('blog') || contentTypes?.blog}
 						<li>
 							<a
-								href={resolve('/blog')}
+								href={resolve('blog')}
 								data-sveltekit-preload-data
 								class="transition-colors hover:text-tx50">Blog</a
 							>
@@ -104,7 +104,7 @@
 
 				<!-- Powered by AfterPython -->
 				<div class="flex items-center gap-2 text-sm text-tx300">
-					<img src="/afterpython.svg" alt="AfterPython" class="h-5 w-auto" />
+					<img src={asset('afterpython.svg')} alt="AfterPython" class="h-5 w-auto" />
 					<span
 						>Powered by <a
 							href="https://afterpython.org"

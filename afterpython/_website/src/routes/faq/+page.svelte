@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { PageProps } from '../$types';
-	import Accordion from '$components/Accordion.svelte';
-	import MarkdownRenderer from '$components/MarkdownRenderer.svelte';
+	import type { PageProps } from './$types';
+	import Accordion from '#lib/components/Accordion.svelte';
+	import MarkdownRenderer from '#lib/components/MarkdownRenderer.svelte';
 
 	const { data }: PageProps = $props();
 
@@ -59,7 +59,7 @@
 				{:else}
 					<Accordion open={false}>
 						{#snippet header()}
-							<span class="text-xs font-semibold uppercase tracking-widest text-pm500">
+							<span class="text-xs font-semibold tracking-widest text-pm500 uppercase">
 								{block.name}
 							</span>
 						{/snippet}

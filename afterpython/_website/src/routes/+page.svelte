@@ -1,11 +1,10 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import MarkdownRenderer from '$components/MarkdownRenderer.svelte';
-	import Announcement from '$components/Announcement.svelte';
-	import StarIcon from '$components/StarIcon.svelte';
-	import { dev } from '$app/environment';
-	import { env } from '$env/dynamic/public';
-	import { resolve } from '$app/paths';
+	import MarkdownRenderer from '#lib/components/MarkdownRenderer.svelte';
+	import Announcement from '#lib/components/Announcement.svelte';
+	import StarIcon from '#lib/components/StarIcon.svelte';
+	import { devContentUrl } from '#lib/utils/index.ts';
+	import { asset, resolve } from '$app/paths';
 
 	const { data }: PageProps = $props();
 
@@ -26,7 +25,7 @@
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={data.summary} />
 		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/thumbnail.png" />
+		<meta property="og:image" content={asset('thumbnail.png')} />
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
@@ -90,7 +89,7 @@
 			{/if}
 			{#if data.contentTypes?.doc}
 				<a
-					href={dev ? env.PUBLIC_DOC_URL : resolve('/doc')}
+					href={devContentUrl('doc') || resolve('doc')}
 					rel="external noopener noreferrer"
 					class="rounded-lg bg-pm500 px-6 py-3 font-medium text-white transition-colors hover:bg-pm600"
 				>
@@ -101,10 +100,10 @@
 
 		{#if data.readme_py}
 			<iframe
-				src={resolve('/readme_py/readme_py.html')}
+				src={resolve('readme_py/readme_py.html')}
 				title="README"
 				loading="lazy"
-				class="h-[96vh] w-full max-w-4xl rounded-2xl border mb-28 border-bg300 bg-bg100 text-left shadow-lg"
+				class="mb-28 h-[96vh] w-full max-w-4xl rounded-2xl border border-bg300 bg-bg100 text-left shadow-lg"
 			></iframe>
 		{:else if data.description}
 			<div

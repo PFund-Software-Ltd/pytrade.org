@@ -1,1 +1,1 @@
-export type { ContentType, ContentJson } from './content';
+export type { ContentType, ContentJson } from './content.ts';
