@@ -5,6 +5,7 @@
 - [Massive](https://massive.com/)
 - [FirstRate Data](https://firstratedata.com/)
 - [Theta Data](https://www.thetadata.net/)
+- [SiftingIO](https://sifting.io/)
 
 > For more details, you may refer to [Historical Market Data Sources](https://www.interactivebrokers.com/campus/ibkr-quant-news/historical-market-data-sources/)
 
