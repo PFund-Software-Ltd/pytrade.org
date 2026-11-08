@@ -14,12 +14,12 @@ The curated list of Python libraries and resources for trading is available at [
 ## What You’ll Find
 
 It is organized around learning content and curated resources:
-- **TradeLabs** — notebook-based labs for learning a topic in depth through hands-on examples.
+- **[Examples](https://pytrade.org/example)** — minimal working code showing one concept or technique.
 - **Tutorials** — guided journeys that take you from zero to a finished result.
 - **Guides** — step-by-step recipes for solving one specific problem.
-- **Examples** — minimal working code for one specific pattern.
 - **Blog** — time-stamped opinions, stories, updates, and takes on Python trading, AI trading, and the trading ecosystem.
 - **Documentation** — curated lists of Python trading libraries, frameworks, tools, and resources
+- **TradeLabs** — notebook-based labs for learning a topic in depth through hands-on examples.
 
 ## Suggesting Resources
 
