@@ -7,7 +7,7 @@
 ---
 
 :::{important} Disclaimer
-Except for [PFund](https://pfund.ai)'s stack (`alphafund`, `pfund`, `pfeed`, `pfolio`, `pfund-plot`, `mtflow` — which I have been working on), I am **NOT affiliated** with, sponsored by, or endorsed by any resources listed here, and none of this is financial advice — always do your own research.
+Except for [PFund](https://pfund.ai)'s stack (`alphafund`, `pfund`, `pfeed`, `pfund-plot`, `mtflow` — which I have been working on), I am **NOT affiliated** with, sponsored by, or endorsed by any resources listed here, and none of this is financial advice — always do your own research.
 :::
 
 ## Table of Contents
