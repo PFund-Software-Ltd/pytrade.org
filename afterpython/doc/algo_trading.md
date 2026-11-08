@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.19.3
+    jupytext_version: 1.19.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -270,9 +270,9 @@ REPOS = {
 repos_table(REPOS)
 ```
 
-- "✔️" = SUPPORTED
-- "✖️" = NOT SUPPORTED
-- "➖" = NOT APPLICABLE
+- "✓" = SUPPORTED
+- "✗" = NOT SUPPORTED
+- "—" = NOT APPLICABLE
 
 
 ## Hyperparameter Optimization

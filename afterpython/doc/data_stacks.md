@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.19.3
+    jupytext_version: 1.19.6
 kernelspec:
   name: python3
   language: python
@@ -83,8 +83,8 @@ REPOS = {
 repos_table(REPOS)
 ```
 
-- "✔️" = SUPPORTED
-- "✖️" = NOT SUPPORTED
+- "✓" = SUPPORTED
+- "✗" = NOT SUPPORTED
 
 :::{seealso}
 For SDKs related to specific data providers, please go to [Data Providers](./data_providers.md)

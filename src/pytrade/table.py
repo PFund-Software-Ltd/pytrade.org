@@ -18,9 +18,11 @@ GITHUB_HEADERS = ["Stars", "Issues", "Contributors", "Version", "Last Publish"]
 
 # Tri-state capability symbols: True -> YES, False -> NO, None -> N/A
 # (e.g. a market-agnostic library where the column doesn't apply).
-YES = "✔️"
-NO = "✖️"
-NA = "➖"
+# Plain text characters, not emoji (✔️ ✖️ ➖), so they follow the text color
+# and stay readable in dark mode.
+YES = "✓"
+NO = "✗"
+NA = "—"
 
 # header -> tooltip; the {abbr} role can't run inside raw-HTML output, so we
 # emit the equivalent <abbr title="..."> tag directly.
@@ -86,7 +88,7 @@ def _render_header(name: str) -> str:
 def _render_field(field: str, value: Any) -> str:
     """Render a capability/text cell.
 
-    Tri-state: ``True`` -> YES (✔️), ``False`` -> NO (✗), ``None`` -> N/A (—,
+    Tri-state: ``True`` -> YES (✓), ``False`` -> NO (✗), ``None`` -> N/A (—,
     e.g. a market-agnostic library). Other fields render as text, with Status
     bolded because it's the most important column.
     """

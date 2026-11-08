@@ -161,7 +161,11 @@ run path:
 # and extensions (jupytext) still load from the venv. CI needs none of this.
 # GITHUB_TOKEN (from the gh CLI) raises the GitHub API rate limit for the stats
 # tables (pytrade.table) from 60 to 5,000 requests/hour.
+# rm the execute caches first: myst caches notebook results keyed on the cell
+# source, so unchanged cells (e.g. `repos_table(REPOS)`) would reuse old outputs
+# even when pytrade's code or the GitHub stats changed.
 
 # Build the site locally, executing notebooks so outputs are fresh: `just build`
 build:
+    rm -rf "{{base}}"/_build/*/execute "{{base}}"/*/_build/execute
     cd "{{base}}/.." && JUPYTER_CONFIG_DIR="$(mktemp -d)" GITHUB_TOKEN="$(gh auth token)" uv run ap build --execute

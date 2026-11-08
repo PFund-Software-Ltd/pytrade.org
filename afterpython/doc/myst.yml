@@ -48,6 +48,7 @@ site:
     logo_dark: ../static/logo.svg
     logo_text: pytrade.org
     logo_url: 'https://pytrade.org'
+    style: ./style.css
   title: PyTrade's Documentation
   nav:
   - title: PFund.ai

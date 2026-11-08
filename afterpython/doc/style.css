@@ -1,0 +1,16 @@
+/* Repo tables (pytrade.table.repos_table) are notebook HTML outputs.
+   Jupyter renders them at ~14px; make them a bit bigger.
+   Wide tables scroll sideways inside the article column. */
+[data-name="outputs-container"] .jp-RenderedHTML table {
+  font-size: 1rem;
+}
+
+/* Jupyter colors visited links purple; keep them the same as unvisited links */
+[data-name="outputs-container"] .jp-RenderedHTML {
+  --jp-content-link-visited-color: var(--jp-content-link-color);
+}
+
+/* dark theme: Jupyter's dark-blue links are hard to read, use a lighter blue */
+html.dark [data-name="outputs-container"] .jp-RenderedHTML {
+  --jp-content-link-color: #60a5fa;
+}
