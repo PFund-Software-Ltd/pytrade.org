@@ -91,9 +91,11 @@
 		currentPage = 1;
 	});
 
-	// Capitalize content type for display
+	// Capitalize and pluralize content type for display, e.g. "example" → "Examples"
+	// "blog" stays singular: a blog is already the collection of posts
 	const displayTitle = $derived.by(() => {
-		return data.contentType.charAt(0).toUpperCase() + data.contentType.slice(1);
+		const title = data.contentType.charAt(0).toUpperCase() + data.contentType.slice(1);
+		return data.contentType === 'blog' ? title : title + 's';
 	});
 </script>
 

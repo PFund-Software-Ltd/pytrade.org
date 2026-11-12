@@ -347,3 +347,6 @@ afterpython/_website.backup/
 **/.zed/
 
 /drafts/
+
+# AfterPython website rules
+**/__marimo__/

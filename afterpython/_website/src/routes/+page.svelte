@@ -13,8 +13,8 @@
 		data.project_url?.find((url: string) => url.startsWith('repository,'))?.split(', ')[1]
 	);
 
-	// Page-specific title
-	const pageTitle = $derived(data.name ? `${data.name} - Home` : 'Home');
+	// [website].title in afterpython.toml, the strongest on-page SEO signal
+	const pageTitle = $derived(data.site_title || (data.name ? `${data.name} - Home` : 'Home'));
 </script>
 
 <svelte:head>
@@ -89,7 +89,7 @@
 			{/if}
 			{#if data.contentTypes?.doc}
 				<a
-					href={devContentUrl('doc') || resolve('doc')}
+					href={devContentUrl('doc') || `${resolve('doc')}/`}
 					rel="external noopener noreferrer"
 					class="rounded-lg bg-pm500 px-6 py-3 font-medium text-white transition-colors hover:bg-pm600"
 				>

@@ -40,6 +40,26 @@ function serveStaticDirIndex(): Plugin {
 	};
 }
 
+// Dev only: static/*.json (faq.json, metadata.json, blog.json, ...) is imported by server
+// load functions only, so Vite never tells the browser to reload when it changes.
+// `ap dev` rewrites these files while running; reload open pages so edits show up.
+function reloadOnStaticData(): Plugin {
+	return {
+		name: 'reload-on-static-data',
+		apply: 'serve',
+		configureServer(server) {
+			const reload = (file: string) => {
+				if (/[/\\]static[/\\][^/\\]+\.json$/.test(file)) {
+					server.ws.send({ type: 'full-reload' });
+				}
+			};
+			server.watcher.on('change', reload);
+			server.watcher.on('add', reload);
+			server.watcher.on('unlink', reload);
+		}
+	};
+}
+
 export default defineConfig(({ mode }) => {
 	const isDev = mode === 'development';
 	return {
@@ -289,6 +309,7 @@ export default defineConfig(({ mode }) => {
 		},
 		plugins: lazyPlugins(() => [
 			serveStaticDirIndex(),
+			reloadOnStaticData(),
 			tailwindcss(),
 			sveltekit({
 				preprocess: [vitePreprocess(), mdsvex()],
@@ -310,7 +331,10 @@ export default defineConfig(({ mode }) => {
 				// GitHub Pages serves sites from a subdirectory (e.g., username.github.io/repo-name/)
 				// Set base path via BASE_PATH env var so all routes and assets are correctly prefixed
 				// Without this, routes like /doc would resolve to username.github.io/doc instead of username.github.io/afterpython/doc
-				paths: { base: (process.env.BASE_PATH || '') as '' | `/${string}` }
+				// relative: false, so resolve()/asset() return absolute paths. With relative paths, the prerendered
+				// redirect in [content_type]/[slug] is e.g. "../example/slug/", which the client router resolves
+				// against /example/slug/ on client-side navigation, landing on /example/example/slug/ (404)
+				paths: { base: (process.env.BASE_PATH || '') as '' | `/${string}`, relative: false }
 				// Path aliases ($lib, $components, $static) are now subpath imports
 				// (#lib/*, #static/*) declared in the "imports" field of package.json
 			})

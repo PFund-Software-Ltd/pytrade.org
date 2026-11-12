@@ -59,7 +59,9 @@ export function getPostHref(post: ContentJson, contentType: ContentType): string
 	const devUrl = devContentUrl(contentType);
 	return devUrl
 		? `${devUrl}/${post.slug}`
-		: resolve('/[content_type=content]/[slug]', { content_type: contentType, slug: post.slug });
+		: // trailing slash: the MyST page is {type}/{slug}/index.html, so this is the
+			// URL it's served at without a redirect
+			`${resolve('/[content_type=content]/[slug]', { content_type: contentType, slug: post.slug })}/`;
 }
 
 /**

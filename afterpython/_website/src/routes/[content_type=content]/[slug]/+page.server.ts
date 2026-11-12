@@ -32,8 +32,8 @@ export const entries: EntryGenerator = async () => {
 };
 
 export const load: PageServerLoad = ({ params }) => {
-	// Redirect to the static MyST-generated HTML
-	// The static HTML files are in static/{content_type}/{slug}/index.html
-	// and will be served at {base}/{content_type}/{slug}/index.html
-	redirect(307, asset(`${params.content_type}/${params.slug}/index.html` as AssetPath));
+	// Redirect old /{content_type}/{slug} links to the static MyST-generated HTML
+	// in static/{content_type}/{slug}/index.html, at its canonical URL
+	// {base}/{content_type}/{slug}/ (not .../index.html, a duplicate of it)
+	redirect(307, asset(`${params.content_type}/${params.slug}/` as AssetPath));
 };

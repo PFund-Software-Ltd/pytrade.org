@@ -28,7 +28,9 @@ function checkApiReferenceExists(): boolean {
 	return existsSync(resolve('static', 'api_reference'));
 }
 
+// fields afterpython adds that aren't in the bundled sample metadata.json
 type LogoMetadata = {
+	site_title?: string;
 	logo?: string;
 	logo_dark?: string;
 	favicon?: string;

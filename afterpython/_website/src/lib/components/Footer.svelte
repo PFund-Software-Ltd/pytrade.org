@@ -43,7 +43,7 @@
 					{#if devContentUrl('doc') || contentTypes?.doc}
 						<li>
 							<a
-								href={devContentUrl('doc') || resolve('doc')}
+								href={devContentUrl('doc') || `${resolve('doc')}/`}
 								target="_blank"
 								rel="external noopener noreferrer"
 								class="transition-colors hover:text-tx50">Documentation</a

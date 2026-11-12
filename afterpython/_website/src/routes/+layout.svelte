@@ -36,7 +36,7 @@
 				{#if devContentUrl('doc') || data.contentTypes?.doc}
 					<li>
 						<a
-							href={devContentUrl('doc') || resolve('doc')}
+							href={devContentUrl('doc') || `${resolve('doc')}/`}
 							target="_blank"
 							rel="external noopener noreferrer"
 						>

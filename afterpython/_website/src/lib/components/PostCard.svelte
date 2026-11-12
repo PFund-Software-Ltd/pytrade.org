@@ -19,7 +19,7 @@
 
 <a
 	{href}
-	class="group block overflow-hidden rounded-lg bg-bg100 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+	class="group block overflow-hidden rounded-lg border border-bd900 bg-bg200 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
 	onmouseleave={() => postContent?.resetTags()}
 >
 	<!-- Thumbnail -->

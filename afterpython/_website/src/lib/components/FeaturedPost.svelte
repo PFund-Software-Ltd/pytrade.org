@@ -15,7 +15,7 @@
 
 <a
 	{href}
-	class="group block overflow-hidden rounded-lg bg-bg100 shadow-md transition-all duration-200 hover:shadow-2xl"
+	class="group block overflow-hidden rounded-lg border border-bd900 bg-bg200 shadow-md transition-all duration-200 hover:shadow-2xl"
 	onmouseleave={() => postContent?.resetTags()}
 >
 	<div class="grid gap-0 md:grid-cols-2">
