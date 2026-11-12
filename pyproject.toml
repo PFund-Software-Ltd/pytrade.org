@@ -7,7 +7,7 @@ license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.13"
 dependencies = [
-    "afterpython[marimo]>=0.4.3",
+    "afterpython[marimo]>=0.5.2",
 ]
 authors = [{name = "Stephen Yau", email = "softwareentrepreneer+pytrade@gmail.com"}]
 
