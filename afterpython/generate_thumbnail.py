@@ -36,12 +36,13 @@ LOGO = HERE / "static" / "logo.svg"
 W, H = 1600, 900
 NAVY_TOP, NAVY_BOTTOM = "#0A1428", "#142544"
 BLUE, YELLOW, GREEN, RED, WHITE, DIM = "#1F6BA6", "#FED540", "#3DD9A4", "#FF6B47", "#F5F7FB", "#8A97B0"
-KEYWORD = "#7FB8F0"
+# code colors after the Python logo: blue keywords and numbers, yellow calls and strings
+KEYWORD, STRING = "#5A9FD4", "#FFE873"
 SANS = "'Avenir Next', Inter, 'Helvetica Neue', sans-serif"
 MONO = "Menlo, monospace"
 # content type -> title, same as the website's listing titles
 CONTENT_TYPES = {"blog": "Blog", "tutorial": "Tutorials", "example": "Examples", "guide": "Guides"}
-TAGLINES = ["The Home for Python Trading"]
+TAGLINES = ["The Home for Python Trading", "Where Python Trading Begins"]
 
 
 def prices(n=26):
@@ -95,9 +96,9 @@ def highlight(src):
         (r, c), text = tok.start, tok.string
         nxt = toks[i + 1].string if i + 1 < len(toks) else ""
         if tok.type == tokenize.STRING:
-            color = GREEN
+            color = STRING
         elif tok.type == tokenize.NUMBER:
-            color = RED
+            color = KEYWORD
         elif tok.type == tokenize.COMMENT or tok.type == tokenize.OP:
             color = DIM
         elif tok.type == tokenize.NAME and keyword.iskeyword(text):
