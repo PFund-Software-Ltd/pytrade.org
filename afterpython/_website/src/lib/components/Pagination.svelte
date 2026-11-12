@@ -81,7 +81,7 @@
 			class="flex items-center gap-2 rounded border border-bd800 bg-bg100 px-3 py-2 text-tx50 transition-colors hover:bg-bg200 disabled:cursor-not-allowed disabled:opacity-50"
 			aria-label="Previous page"
 		>
-			<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<svg width="16" height="16" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 			</svg>
 		</button>
@@ -118,7 +118,7 @@
 			class="flex items-center gap-2 rounded border border-bd800 bg-bg100 px-3 py-2 text-tx50 transition-colors hover:bg-bg200 disabled:cursor-not-allowed disabled:opacity-50"
 			aria-label="Next page"
 		>
-			<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<svg width="16" height="16" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 			</svg>
 		</button>

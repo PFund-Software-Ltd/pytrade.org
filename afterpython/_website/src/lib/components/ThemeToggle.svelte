@@ -17,6 +17,8 @@
 		viewBox="0 0 24 24"
 		stroke-width="1.5"
 		stroke="currentColor"
+		width="20"
+		height="20"
 		class="h-5 w-5"
 	>
 		{#if themeStore.mode === 'system'}

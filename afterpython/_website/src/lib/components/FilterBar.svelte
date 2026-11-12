@@ -95,6 +95,8 @@
 					{/if}
 				</span>
 				<svg
+					width="20"
+					height="20"
 					class="h-5 w-5 text-tx300 transition-transform {showTagDropdown ? 'rotate-180' : ''}"
 					fill="none"
 					stroke="currentColor"
@@ -127,6 +129,8 @@
 							>
 								{#if selectedTags.includes(tag)}
 									<svg
+										width="12"
+										height="12"
 										class="h-3 w-3 text-white"
 										fill="none"
 										stroke="currentColor"
@@ -177,7 +181,7 @@
 						class="inline-flex items-center gap-1 rounded bg-pm500 px-2 py-1 text-sm text-white transition-colors hover:bg-pm600"
 					>
 						<span>{tag}</span>
-						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg width="16" height="16" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path
 								stroke-linecap="round"
 								stroke-linejoin="round"

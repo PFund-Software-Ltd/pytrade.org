@@ -54,6 +54,17 @@
 		xl: 'h-22'
 	};
 
+	// Same heights in px, set as the <img> height attribute: a fallback if CSS is late, so the logo
+	// can't flash at its natural size (the default logo.svg is 1024×1024). No width attribute, so any
+	// logo keeps its own aspect ratio; the classes above override this once CSS loads.
+	const sizePx = {
+		xs: 24,
+		sm: 40,
+		md: 56,
+		lg: 72,
+		xl: 88
+	};
+
 	// Font size classes for logo text - matching MyST's responsive sizing
 	const textSizeClasses = {
 		xs: 'text-sm sm:text-md tracking-tight',
@@ -82,6 +93,7 @@
 			<img
 				src={lightSrc}
 				alt="Logo"
+				height={sizePx[size]}
 				class="{sizeClasses[size]} w-auto {darkSrc ? 'dark:hidden' : ''}"
 				onerror={handleLightError}
 			/>
@@ -90,6 +102,7 @@
 			<img
 				src={darkSrc}
 				alt="Logo"
+				height={sizePx[size]}
 				class="{sizeClasses[size]} w-auto {lightSrc ? 'hidden dark:block' : ''}"
 				onerror={handleDarkError}
 			/>

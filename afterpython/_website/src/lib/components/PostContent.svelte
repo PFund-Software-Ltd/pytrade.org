@@ -124,7 +124,7 @@
 			class="mt-4 flex items-center gap-2 font-medium text-pm500 transition-all group-hover:gap-3"
 		>
 			<span>Read more</span>
-			<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<svg width="20" height="20" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path
 					stroke-linecap="round"
 					stroke-linejoin="round"
