@@ -84,7 +84,14 @@ export function formatDate(dateString?: string): string | null {
 	if (!dateString || dateString.trim() === '') return null;
 	const date = new Date(dateString);
 	if (isNaN(date.getTime())) return null;
-	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+	// Date-only strings ("2026-11-11") parse as midnight UTC; format in UTC too,
+	// otherwise viewers west of UTC see the previous day (MyST pages show it as written).
+	return date.toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+		timeZone: 'UTC'
+	});
 }
 
 /**
