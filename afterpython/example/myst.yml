@@ -16,11 +16,15 @@ project:
     title: 'PyTrade.org'
     url: 'https://pytrade.org'
   copyright: © PyTrade.org 2026. All rights reserved.
-  title: ''
-  description: None
-  keywords: []
-  thumbnail: ''
-  toc: []
+  title: Examples
+  description: Short, runnable Python trading examples.
+  keywords:
+  - python trading
+  - algo-trading
+  - trading data
+  - polars
+  toc:
+  - file: read_with_polars.ipynb
 site:
   template: book-theme
   # options:
@@ -35,6 +39,17 @@ site:
     logo_text: pytrade.org
     logo_url: 'https://pytrade.org'
   title: pytrade.org's Example
+  nav:
+  - title: PFund.ai
+    url: https://pfund.ai
+  - title: Documentation
+    url: https://pytrade.org/doc
+  - title: Tutorials
+    url: https://pytrade.org/tutorial
+  - title: Blogs
+    url: https://pytrade.org/blog
+  - title: Guides
+    url: https://pytrade.org/guide
   actions:
   - title: ⭐ Star
     url: https://github.com/PFund-Software-Ltd/pytrade.org

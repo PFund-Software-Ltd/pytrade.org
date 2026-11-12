@@ -1,2 +1,6 @@
 # MyST build outputs
 _build
+
+# afterpython: .ipynb files here are generated from marimo notebooks (.py)
+*.ipynb
+__marimo__/

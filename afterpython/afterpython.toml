@@ -12,3 +12,7 @@ announcement = ""
 readme_py = "wasm"
 execute_readme_py = false
 api_reference = false
+
+[website.example]
+thumbnail = "default_thumbnail.png"  # inside example/static/
+featured_post = "read_with_polars.ipynb"  # matched against the built notebook, not the marimo .py
